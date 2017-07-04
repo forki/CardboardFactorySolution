@@ -1,0 +1,34 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:viewModel="clr-namespace:CardboardFactory.ProductPriceCalculation.ViewModel"
+                    xmlns:view="clr-namespace:CardboardFactory.ProductPriceCalculation.View">
+    <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
+
+    <DataTemplate x:Key="ProductParametersTemplate" DataType="viewModel:ProductParameterViewModel">
+        <ItemsControl IsTabStop="False" ItemsSource="{Binding}" Margin="6,2">
+            <ItemsControl.ItemTemplate>
+                <DataTemplate DataType="viewModel:ProductParameterViewModel">
+                    <view:ProductParameterView />
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
+    </DataTemplate>
+
+    <DataTemplate x:Key="OrderParameterTemplate" DataType="viewModel:OrderParameterViewModel">
+        <view:OrderParameterView />
+    </DataTemplate>
+
+    <DataTemplate x:Key="CalculationResultsTemplate" DataType="viewModel:CalculationResultsViewModel">
+        <view:CalculationResultsView />
+    </DataTemplate>
+
+    <DataTemplate x:Key="BlanksSizesTemplate" DataType="viewModel:BlankSizesViewModel">
+        <ItemsControl IsTabStop="False" ItemsSource="{Binding}" Margin="6,2">
+            <ItemsControl.ItemTemplate>
+                <DataTemplate DataType="viewModel:BlankSizesViewModel">
+                    <view:BlankSizesView />
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
+    </DataTemplate>
+</ResourceDictionary>

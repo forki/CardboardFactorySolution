@@ -1,0 +1,51 @@
+﻿<UserControl x:Class="CardboardFactory.ProductPriceCalculation.View.OrderParameterView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:viewModel="clr-namespace:CardboardFactory.ProductPriceCalculation.ViewModel"
+             mc:Ignorable="d"
+             d:DesignHeight="200" d:DesignWidth="300"
+             d:DataContext="{d:DesignInstance viewModel:OrderParameterViewModel}">
+    <UserControl.Resources>
+        <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
+    </UserControl.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="Auto" />
+        </Grid.ColumnDefinitions>
+
+        <Label Grid.Row="0" Grid.Column="0" Margin="6,2" Content="Выберите тип гофрокартона: " />
+        <ComboBox Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" Margin="6,2"
+                  ItemsSource="{Binding CorrugationTypes}"
+                  SelectedItem="{Binding CorrugationType}"
+                  MinWidth="50" MinHeight="28" />
+
+        <Label Grid.Row="1" Grid.Column="0" Margin="6,2" Content="Расценка за м кв.: " />
+        <TextBox Grid.Row="1" Grid.Column="1" Margin="6,2" Width="100" VerticalContentAlignment="Center"
+                 TextAlignment="Center" FontSize="16"
+                 Text="{Binding CardboardPrice, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" />
+        <Label Grid.Row="1" Grid.Column="2" Content="грн." FontSize="16" Width="50" />
+
+        <CheckBox Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3" Margin="6,2"
+                  Content="Расчёт стоимости штампа"
+                  IsChecked="{Binding ShouldCalculateStampPrice, Mode=TwoWay}" />
+
+        <Label Grid.Row="3" Grid.Column="0" Margin="6,2" Content="Расценка за пог. м ножей: "
+               Visibility="{Binding ShouldCalculateStampPrice, Converter={StaticResource BooleanToVisibilityConverter}}" />
+        <TextBox Grid.Row="3" Grid.Column="1" Margin="6,2" Width="100" VerticalContentAlignment="Center"
+                 TextAlignment="Center" FontSize="16"
+                 Text="{Binding PricePerKnifeMeter, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                 Visibility="{Binding ShouldCalculateStampPrice, Converter={StaticResource BooleanToVisibilityConverter}}" />
+        <Label Grid.Row="3" Grid.Column="2" Content="грн." FontSize="16" Width="50"
+               Visibility="{Binding ShouldCalculateStampPrice, Converter={StaticResource BooleanToVisibilityConverter}}" />
+    </Grid>
+</UserControl>

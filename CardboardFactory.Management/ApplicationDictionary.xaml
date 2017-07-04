@@ -1,0 +1,69 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:core="clr-namespace:CardboardFactory.Core;assembly=CardboardFactory.Core"
+                    xmlns:productPriceCalculation="clr-namespace:CardboardFactory.ProductPriceCalculation;assembly=CardboardFactory.ProductPriceCalculation">
+    <DataTemplate DataType="{x:Type productPriceCalculation:ProductPriceCalculationMainViewModel}">
+        <productPriceCalculation:ProductPriceCalculationMain />
+    </DataTemplate>
+
+    <DataTemplate x:Key="CommandsTemplate">
+        <ItemsControl IsTabStop="False" ItemsSource="{Binding}" Margin="6,2">
+            <ItemsControl.ItemTemplate>
+                <DataTemplate DataType="core:CommandViewModel">
+                    <Button Command="{Binding Path=Command}" HorizontalAlignment="Stretch" Padding="5" Margin="0,5,0,5">
+                        <TextBlock Text="{Binding Path=DisplayName}" TextWrapping="Wrap" TextAlignment="Center"
+                                   FontSize="16" />
+                    </Button>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
+    </DataTemplate>
+
+    <DataTemplate x:Key="ClosableTabItemTemplate" DataType="core:WorkspaceViewModel">
+        <DockPanel>
+            <Button
+                Command="{Binding Path=CloseCommand}"
+                Content="X"
+                DockPanel.Dock="Right"
+                Focusable="False"
+                FontFamily="Courier"
+                FontSize="9"
+                FontWeight="Bold"
+                Margin="0,1,0,0"
+                Padding="0"
+                VerticalContentAlignment="Bottom"
+                Width="16" Height="16" />
+            <ContentPresenter
+                Content="{Binding Path=DisplayName}"
+                VerticalAlignment="Center" />
+        </DockPanel>
+    </DataTemplate>
+
+    <DataTemplate x:Key="WorkspacesTemplate">
+        <TabControl
+            IsSynchronizedWithCurrentItem="True"
+            ItemsSource="{Binding}"
+            ItemTemplate="{StaticResource ClosableTabItemTemplate}"
+            Margin="4" />
+    </DataTemplate>
+
+    <Style TargetType="{x:Type TextBox}">
+        <Style.Triggers>
+            <Trigger Property="Validation.HasError" Value="True">
+                <Setter Property="Background" Value="Pink" />
+                <Setter Property="ToolTip"
+                        Value="{Binding RelativeSource={x:Static RelativeSource.Self},
+                        Path=(Validation.Errors)[0].ErrorContent}" />
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <Style TargetType="{x:Type TextBlock}">
+        <Style.Triggers>
+            <Trigger Property="Validation.HasError" Value="true">
+                <Setter Property="ToolTip"
+                        Value="{Binding RelativeSource={RelativeSource Self}, Path=(Validation.Errors)[0].ErrorContent}" />
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+</ResourceDictionary>

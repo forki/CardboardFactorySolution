@@ -1,0 +1,747 @@
+[
+    {
+        "Name": "Короб 0200",
+        "Parameters": {
+            "Длина": {
+                "Name": "Длина",
+                "Value": 0.0
+            },
+            "Ширина": {
+                "Name": "Ширина",
+                "Value": 0.0
+            },
+            "Высота": {
+                "Name": "Высота",
+                "Value": 0.0
+            }
+        },
+        "SubProducts": [
+            {
+                "Name": "Заготовка",
+                "LengthOneFormulas": {
+                    "C, EAndC": {
+                        "CorrugationType": "C, EAndC",
+                        "FormulaText": "2 * ([Длина] + [Ширина]) + 0.058"
+                    },
+                    "E": {
+                        "CorrugationType": "E",
+                        "FormulaText": "2 * ([Длина] + [Ширина]) + 0.038"
+                    }
+                },
+                "LengthTwoFormulas": {
+                    "C, EAndC": {
+                        "CorrugationType": "C, EAndC",
+                        "FormulaText": "[Высота] + [Ширина] / 2 + 0.006"
+                    },
+                    "E": {
+                        "CorrugationType": "E",
+                        "FormulaText": "[Высота] + [Ширина] / 2 + 0.002"
+                    }
+                }
+            }
+        ],
+        "StampKnivesLengthFormula": "([L1] + [L2]) * 5.5"
+    },
+    {
+        "Name": "Короб 0201",
+        "Parameters": {
+            "Длина": {
+                "Name": "Длина",
+                "Value": 0.0
+            },
+            "Ширина": {
+                "Name": "Ширина",
+                "Value": 0.0
+            },
+            "Высота": {
+                "Name": "Высота",
+                "Value": 0.0
+            }
+        },
+        "SubProducts": [
+            {
+                "Name": "Заготовка",
+                "LengthOneFormulas": {
+                    "C, EAndC": {
+                        "CorrugationType": "C, EAndC",
+                        "FormulaText": "2 * ([Длина] + [Ширина]) + 0.058"
+                    },
+                    "E": {
+                        "CorrugationType": "E",
+                        "FormulaText": "2 * ([Длина] + [Ширина]) + 0.038"
+                    }
+                },
+                "LengthTwoFormulas": {
+                    "C, EAndC": {
+                        "CorrugationType": "C, EAndC",
+                        "FormulaText": "[Высота] + [Ширина] + 0.012"
+                    },
+                    "E": {
+                        "CorrugationType": "E",
+                        "FormulaText": "[Высота] + [Ширина] + 0.004"
+                    }
+                }
+            }
+        ],
+        "StampKnivesLengthFormula": "([L1] + [L2]) * 5.5"
+    },
+    {
+        "Name": "Короб 0203",
+        "Parameters": {
+            "Длина": {
+                "Name": "Длина",
+                "Value": 0.0
+            },
+            "Ширина": {
+                "Name": "Ширина",
+                "Value": 0.0
+            },
+            "Высота": {
+                "Name": "Высота",
+                "Value": 0.0
+            }
+        },
+        "SubProducts": [
+            {
+                "Name": "Заготовка",
+                "LengthOneFormulas": {
+                    "C, EAndC": {
+                        "CorrugationType": "C, EAndC",
+                        "FormulaText": "2 * ([Длина] + [Ширина]) + 0.058"
+                    },
+                    "E": {
+                        "CorrugationType": "E",
+                        "FormulaText": "2 * ([Длина] + [Ширина]) + 0.038"
+                    }
+                },
+                "LengthTwoFormulas": {
+                    "C, EAndC": {
+                        "CorrugationType": "C, EAndC",
+                        "FormulaText": "2 * [Ширина] + [Высота] + 0.012"
+                    },
+                    "E": {
+                        "CorrugationType": "E",
+                        "FormulaText": "2 * [Ширина] + [Высота] + 0.004"
+                    }
+                }
+            }
+        ],
+        "StampKnivesLengthFormula": "([L1] + [L2]) * 5.5"
+    },
+    {
+        "Name": "Короб 0215",
+        "Parameters": {
+            "Длина": {
+                "Name": "Длина",
+                "Value": 0.0
+            },
+            "Ширина": {
+                "Name": "Ширина",
+                "Value": 0.0
+            },
+            "Высота": {
+                "Name": "Высота",
+                "Value": 0.0
+            }
+        },
+        "SubProducts": [
+            {
+                "Name": "Заготовка",
+                "LengthOneFormulas": {
+                    "C, EAndC": {
+                        "CorrugationType": "C, EAndC",
+                        "FormulaText": "2 * ([Длина] + [Ширина]) + 0.058"
+                    },
+                    "E": {
+                        "CorrugationType": "E",
+                        "FormulaText": "2 * ([Длина] + [Ширина]) + 0.038"
+                    }
+                },
+                "LengthTwoFormulas": {
+                    "C, EAndC": {
+                        "CorrugationType": "C, EAndC",
+                        "FormulaText": "1.667 * [Ширина] + [Высота] + 0.048"
+                    },
+                    "E": {
+                        "CorrugationType": "E",
+                        "FormulaText": "1.667 * [Ширина] + [Высота] + 0.028"
+                    }
+                }
+            }
+        ],
+        "StampKnivesLengthFormula": "([L1] + [L2]) * 5.5"
+    },
+    {
+        "Name": "Короб 0216",
+        "Parameters": {
+            "Длина": {
+                "Name": "Длина",
+                "Value": 0.0
+            },
+            "Ширина": {
+                "Name": "Ширина",
+                "Value": 0.0
+            },
+            "Высота": {
+                "Name": "Высота",
+                "Value": 0.0
+            }
+        },
+        "SubProducts": [
+            {
+                "Name": "Заготовка",
+                "LengthOneFormulas": {
+                    "C, EAndC": {
+                        "CorrugationType": "C, EAndC",
+                        "FormulaText": "2 * ([Длина] + [Ширина]) + 0.058"
+                    },
+                    "E": {
+                        "CorrugationType": "E",
+                        "FormulaText": "2 * ([Длина] + [Ширина]) + 0.038"
+                    }
+                },
+                "LengthTwoFormulas": {
+                    "C, EAndC": {
+                        "CorrugationType": "C, EAndC",
+                        "FormulaText": "(0.5 + 0.667)* [Ширина] + [Высота] + 0.048"
+                    },
+                    "E": {
+                        "CorrugationType": "E",
+                        "FormulaText": "(0.5 + 0.667) * [Ширина] + [Высота] + 0.026"
+                    }
+                }
+            }
+        ],
+        "StampKnivesLengthFormula": "[L1] * 4.5 + [L2] * 5.5"
+    },
+    {
+        "Name": "Короб 0300(верх/низ под склейку)",
+        "Parameters": {
+            "Длина": {
+                "Name": "Длина",
+                "Value": 0.0
+            },
+            "Ширина": {
+                "Name": "Ширина",
+                "Value": 0.0
+            },
+            "Высота": {
+                "Name": "Высота",
+                "Value": 0.0
+            }
+        },
+        "SubProducts": [
+            {
+                "Name": "Заготовка - Низ",
+                "LengthOneFormulas": {
+                    "C, EAndC": {
+                        "CorrugationType": "C, EAndC",
+                        "FormulaText": "[Длина] + 2 * [Высота] + 0.012"
+                    },
+                    "E": {
+                        "CorrugationType": "E",
+                        "FormulaText": "[Длина] + 2 * [Высота] + 0.004"
+                    }
+                },
+                "LengthTwoFormulas": {
+                    "C, EAndC": {
+                        "CorrugationType": "C, EAndC",
+                        "FormulaText": "[Ширина] + 2 * [Высота] + 0.012"
+                    },
+                    "E": {
+                        "CorrugationType": "E",
+                        "FormulaText": "[Ширина] + 2 * [Высота] + 0.004"
+                    }
+                }
+            },
+            {
+                "Name": "Заготовка - Крышка",
+                "LengthOneFormulas": {
+                    "C, EAndC": {
+                        "CorrugationType": "C, EAndC",
+                        "FormulaText": "[Длина] + 2 * [Высота] + 0.022"
+                    },
+                    "E": {
+                        "CorrugationType": "E",
+                        "FormulaText": "[Длина] + 2 * [Высота] + 0.014"
+                    }
+                },
+                "LengthTwoFormulas": {
+                    "C, EAndC": {
+                        "CorrugationType": "C, EAndC",
+                        "FormulaText": "[Ширина] + 2 * [Высота] + 0.022"
+                    },
+                    "E": {
+                        "CorrugationType": "E",
+                        "FormulaText": "[Ширина] + 2 * [Высота] + 0.014"
+                    }
+                }
+            }
+        ],
+        "StampKnivesLengthFormula": "([L1_1] + [L1_2] + [L2_1] + [L2_2]) * 4.5"
+    },
+    {
+        "Name": "Короб 0320(верх/низ с клапанами)",
+        "Parameters": {
+            "Длина": {
+                "Name": "Длина",
+                "Value": 0.0
+            },
+            "Ширина": {
+                "Name": "Ширина",
+                "Value": 0.0
+            },
+            "Высота": {
+                "Name": "Высота",
+                "Value": 0.0
+            }
+        },
+        "SubProducts": [
+            {
+                "Name": "Заготовка - Низ",
+                "LengthOneFormulas": {
+                    "C, EAndC": {
+                        "CorrugationType": "C, EAndC",
+                        "FormulaText": "2 * ([Длина] + [Ширина]) + 0.058"
+                    },
+                    "E": {
+                        "CorrugationType": "E",
+                        "FormulaText": "2 * ([Длина] + [Ширина]) + 0.038"
+                    }
+                },
+                "LengthTwoFormulas": {
+                    "C, EAndC": {
+                        "CorrugationType": "C, EAndC",
+                        "FormulaText": "[Высота] + [Ширина] / 2 + 0.006"
+                    },
+                    "E": {
+                        "CorrugationType": "E",
+                        "FormulaText": "[Высота] + [Ширина] / 2 + 0.002"
+                    }
+                }
+            },
+            {
+                "Name": "Заготовка - Крышка",
+                "LengthOneFormulas": {
+                    "C, EAndC": {
+                        "CorrugationType": "C, EAndC",
+                        "FormulaText": "2 * ([Длина] + [Ширина]) + 0.098"
+                    },
+                    "E": {
+                        "CorrugationType": "E",
+                        "FormulaText": "2 * ([Длина] + [Ширина]) + 0.078"
+                    }
+                },
+                "LengthTwoFormulas": {
+                    "C, EAndC": {
+                        "CorrugationType": "C, EAndC",
+                        "FormulaText": "[Высота] + [Ширина] / 2 + 0.011"
+                    },
+                    "E": {
+                        "CorrugationType": "E",
+                        "FormulaText": "[Высота] + [Ширина] / 2 + 0.012"
+                    }
+                }
+            }
+        ],
+        "StampKnivesLengthFormula": "([L1_1] + [L1_2]) * 3.5 +([L2_1] + [L2_2]) * 5.5"
+    },
+    {
+        "Name": "Короб 0330(верх/низ под 'мясо')",
+        "Parameters": {
+            "Длина": {
+                "Name": "Длина",
+                "Value": 0.0
+            },
+            "Ширина": {
+                "Name": "Ширина",
+                "Value": 0.0
+            },
+            "Высота": {
+                "Name": "Высота",
+                "Value": 0.0
+            }
+        },
+        "SubProducts": [
+            {
+                "Name": "Заготовка - Низ",
+                "LengthOneFormulas": {
+                    "C, EAndC": {
+                        "CorrugationType": "C, EAndC",
+                        "FormulaText": "[Длина] + 2 * [Высота] + 0.012"
+                    },
+                    "E": {
+                        "CorrugationType": "E",
+                        "FormulaText": "[Длина] + 2 * [Высота] + 0.004"
+                    }
+                },
+                "LengthTwoFormulas": {
+                    "C, EAndC": {
+                        "CorrugationType": "C, EAndC",
+                        "FormulaText": "(2 * [Высота] + 0.02) * 2 + [Ширина] + 0.036"
+                    },
+                    "E": {
+                        "CorrugationType": "E",
+                        "FormulaText": "(2 * [Высота] + 0.02) * 2 + [Ширина] + 0.012"
+                    }
+                }
+            },
+            {
+                "Name": "Заготовка - Крышка",
+                "LengthOneFormulas": {
+                    "C, EAndC": {
+                        "CorrugationType": "C, EAndC",
+                        "FormulaText": "(2 * [Высота] + 0.02) * 2 + [Длина] + 0.046"
+                    },
+                    "E": {
+                        "CorrugationType": "E",
+                        "FormulaText": "(2 * [Высота] + 0.02) * 2 + [Длина] + 0.022"
+                    }
+                },
+                "LengthTwoFormulas": {
+                    "C, EAndC": {
+                        "CorrugationType": "C, EAndC",
+                        "FormulaText": "[Ширина] + 2 * [Высота] + 0.022"
+                    },
+                    "E": {
+                        "CorrugationType": "E",
+                        "FormulaText": "[Ширина] + 2 * [Высота] + 0.014"
+                    }
+                }
+            }
+        ],
+        "StampKnivesLengthFormula": "[L1_1] * 4 + [L2_1] * 5.5 + [L1_2] * 5.5 + [L2_2] * 4"
+    },
+    {
+        "Name": "Короб 0427",
+        "Parameters": {
+            "Длина": {
+                "Name": "Длина",
+                "Value": 0.0
+            },
+            "Ширина": {
+                "Name": "Ширина",
+                "Value": 0.0
+            },
+            "Высота": {
+                "Name": "Высота",
+                "Value": 0.0
+            }
+        },
+        "SubProducts": [
+            {
+                "Name": "Заготовка",
+                "LengthOneFormulas": {
+                    "C, EAndC": {
+                        "CorrugationType": "C, EAndC",
+                        "FormulaText": "2 * [Ширина] + 3 * [Высота] + 0.024"
+                    },
+                    "E": {
+                        "CorrugationType": "E",
+                        "FormulaText": "2 * [Ширина] + 3 * [Высота] + 0.008"
+                    }
+                },
+                "LengthTwoFormulas": {
+                    "C, EAndC": {
+                        "CorrugationType": "C, EAndC",
+                        "FormulaText": "(2 * [Высота] + 0.02) * 2 + [Длина] + 0.036"
+                    },
+                    "E": {
+                        "CorrugationType": "E",
+                        "FormulaText": "(2 * [Высота] + 0.02) * 2 + [Длина] + 0.012"
+                    }
+                }
+            }
+        ],
+        "StampKnivesLengthFormula": "([L1] + [L2]) * 6"
+    },
+    {
+        "Name": "Короб 0471",
+        "Parameters": {
+            "Длина": {
+                "Name": "Длина",
+                "Value": 0.0
+            },
+            "Ширина": {
+                "Name": "Ширина",
+                "Value": 0.0
+            },
+            "Высота": {
+                "Name": "Высота",
+                "Value": 0.0
+            }
+        },
+        "SubProducts": [
+            {
+                "Name": "Заготовка",
+                "LengthOneFormulas": {
+                    "C, EAndC": {
+                        "CorrugationType": "C, EAndC",
+                        "FormulaText": "[Длина] + 2 * [Ширина] + 0.012"
+                    },
+                    "E": {
+                        "CorrugationType": "E",
+                        "FormulaText": "[Длина] + 2 * [Ширина] + 0.004"
+                    }
+                },
+                "LengthTwoFormulas": {
+                    "C, EAndC": {
+                        "CorrugationType": "C, EAndC",
+                        "FormulaText": "3 * [Высота] + 2 * [Ширина] + 0.024"
+                    },
+                    "E": {
+                        "CorrugationType": "E",
+                        "FormulaText": "3 * [Высота] + 2 * [Ширина] + 0.008"
+                    }
+                }
+            }
+        ],
+        "StampKnivesLengthFormula": "[L1] * 6.5 + [L2] * 4.5"
+    },
+    {
+        "Name": "Короб 0211(Медицинская коробка)",
+        "Parameters": {
+            "Длина": {
+                "Name": "Длина",
+                "Value": 0.0
+            },
+            "Ширина": {
+                "Name": "Ширина",
+                "Value": 0.0
+            },
+            "Высота": {
+                "Name": "Высота",
+                "Value": 0.0
+            }
+        },
+        "SubProducts": [
+            {
+                "Name": "Заготовка",
+                "LengthOneFormulas": {
+                    "C, EAndC": {
+                        "CorrugationType": "C, EAndC",
+                        "FormulaText": "2 * ([Длина] + [Ширина]) + 0.058"
+                    },
+                    "E": {
+                        "CorrugationType": "E",
+                        "FormulaText": "2 * ([Длина] + [Ширина]) + 0.038"
+                    }
+                },
+                "LengthTwoFormulas": {
+                    "C, EAndC": {
+                        "CorrugationType": "C, EAndC",
+                        "FormulaText": "2 * [Ширина] + [Высота] + 0.084"
+                    },
+                    "E": {
+                        "CorrugationType": "E",
+                        "FormulaText": "2 * [Ширина] + [Высота] + 0.048"
+                    }
+                }
+            }
+        ],
+        "StampKnivesLengthFormula": "([L1] + [L2]) * 5.5"
+    },
+    {
+        "Name": "Коробка под пиццу",
+        "Parameters": {
+            "Длина": {
+                "Name": "Длина",
+                "Value": 0.0
+            },
+            "Ширина": {
+                "Name": "Ширина",
+                "Value": 0.0
+            },
+            "Высота": {
+                "Name": "Высота",
+                "Value": 0.0
+            }
+        },
+        "SubProducts": [
+            {
+                "Name": "Заготовка",
+                "LengthOneFormulas": {
+                    "C, EAndC": {
+                        "CorrugationType": "C, EAndC",
+                        "FormulaText": "2 * [Длина] + 3 * [Высота] + 0.024"
+                    },
+                    "E": {
+                        "CorrugationType": "E",
+                        "FormulaText": "2 * [Длина] + 3 * [Высота] + 0.008"
+                    }
+                },
+                "LengthTwoFormulas": {
+                    "C, EAndC": {
+                        "CorrugationType": "C, EAndC",
+                        "FormulaText": "[Ширина] + 2 * [Высота] + 0.012"
+                    },
+                    "E": {
+                        "CorrugationType": "E",
+                        "FormulaText": "[Ширина] + 2 * [Высота] + 0.004"
+                    }
+                }
+            }
+        ],
+        "StampKnivesLengthFormula": "[L1] * 4 + [L2] * 6"
+    },
+    {
+        "Name": "Кондитерский 'Телевизор'",
+        "Parameters": {
+            "Длина": {
+                "Name": "Длина",
+                "Value": 0.0
+            },
+            "Ширина": {
+                "Name": "Ширина",
+                "Value": 0.0
+            },
+            "Высота": {
+                "Name": "Высота",
+                "Value": 0.0
+            }
+        },
+        "SubProducts": [
+            {
+                "Name": "Заготовка",
+                "LengthOneFormulas": {
+                    "C, EAndC": {
+                        "CorrugationType": "C, EAndC",
+                        "FormulaText": "[Длина] + 2 * [Высота] + 0.184"
+                    },
+                    "E": {
+                        "CorrugationType": "E",
+                        "FormulaText": "[Длина] + 2 * [Высота] + 0.168"
+                    }
+                },
+                "LengthTwoFormulas": {
+                    "C, EAndC": {
+                        "CorrugationType": "C, EAndC",
+                        "FormulaText": "[Ширина] + 2 * [Высота] + 0.044"
+                    },
+                    "E": {
+                        "CorrugationType": "E",
+                        "FormulaText": "[Ширина] + 2 * [Высота] + 0.028"
+                    }
+                }
+            }
+        ],
+        "StampKnivesLengthFormula": "([L1] + [L2]) * 6"
+    },
+    {
+        "Name": "Прокладка",
+        "Parameters": {
+            "Длина": {
+                "Name": "Длина",
+                "Value": 0.0
+            },
+            "Ширина": {
+                "Name": "Ширина",
+                "Value": 0.0
+            }
+        },
+        "SubProducts": [
+            {
+                "Name": "Заготовка",
+                "LengthOneFormulas": {
+                    "All": {
+                        "CorrugationType": "All",
+                        "FormulaText": "[Длина]"
+                    }
+                },
+                "LengthTwoFormulas": {
+                    "All": {
+                        "CorrugationType": "All",
+                        "FormulaText": "[Ширина]"
+                    }
+                }
+            }
+        ],
+        "StampKnivesLengthFormula": "([L1] + [L2]) * 2"
+    },
+    {
+        "Name": "Короб 0452(Поддон под склейку)",
+        "Parameters": {
+            "Длина": {
+                "Name": "Длина",
+                "Value": 0.0
+            },
+            "Ширина": {
+                "Name": "Ширина",
+                "Value": 0.0
+            },
+            "Высота": {
+                "Name": "Высота",
+                "Value": 0.0
+            }
+        },
+        "SubProducts": [
+            {
+                "Name": "Заготовка",
+                "LengthOneFormulas": {
+                    "C, EAndC": {
+                        "CorrugationType": "C, EAndC",
+                        "FormulaText": "[Длина] + 2 * [Высота] + 0.012"
+                    },
+                    "E": {
+                        "CorrugationType": "E",
+                        "FormulaText": "[Длина] + 2 * [Высота] + 0.004"
+                    }
+                },
+                "LengthTwoFormulas": {
+                    "C, EAndC": {
+                        "CorrugationType": "C, EAndC",
+                        "FormulaText": "[Ширина] + 2 * [Высота] + 0.012"
+                    },
+                    "E": {
+                        "CorrugationType": "E",
+                        "FormulaText": "[Ширина] + 2 * [Высота] + 0.004"
+                    }
+                }
+            }
+        ],
+        "StampKnivesLengthFormula": "([L1] + [L2]) * 4"
+    },
+    {
+        "Name": "Короб 0422(Поддон самоскладывающийся)",
+        "Parameters": {
+            "Длина": {
+                "Name": "Длина",
+                "Value": 0.0
+            },
+            "Ширина": {
+                "Name": "Ширина",
+                "Value": 0.0
+            },
+            "Высота": {
+                "Name": "Высота",
+                "Value": 0.0
+            }
+        },
+        "SubProducts": [
+            {
+                "Name": "Заготовка",
+                "LengthOneFormulas": {
+                    "C, EAndC": {
+                        "CorrugationType": "C, EAndC",
+                        "FormulaText": "(2 * [Высота] + 0.02) * 2 + [Длина] + 0.036"
+                    },
+                    "E": {
+                        "CorrugationType": "E",
+                        "FormulaText": "(2 * [Высота] + 0.02) * 2 + [Длина] + 0.012"
+                    }
+                },
+                "LengthTwoFormulas": {
+                    "C, EAndC": {
+                        "CorrugationType": "C, EAndC",
+                        "FormulaText": "[Ширина] + 2 * [Высота] + 0.012"
+                    },
+                    "E": {
+                        "CorrugationType": "E",
+                        "FormulaText": "[Ширина] + 2 * [Высота] + 0.004"
+                    }
+                }
+            }
+        ],
+        "StampKnivesLengthFormula": "([L1] + 2 * [L2]) * 4"
+    }
+]
