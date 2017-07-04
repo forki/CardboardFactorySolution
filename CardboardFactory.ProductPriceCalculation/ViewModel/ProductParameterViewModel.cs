@@ -1,6 +1,7 @@
 ﻿using System.ComponentModel;
 using CardboardFactory.Core;
 using CardboardFactory.Core.Product;
+using CardboardFactory.Core.Tools;
 
 namespace CardboardFactory.ProductPriceCalculation.ViewModel {
     public class ProductParameterViewModel : ViewModelBase, IDataErrorInfo {
@@ -13,10 +14,10 @@ namespace CardboardFactory.ProductPriceCalculation.ViewModel {
 
         public override string DisplayName => Parameter.Name;
 
-        public int? Value {
+        public double? Value {
             get => vValue;
             set {
-                if (vValue == value) { return; }
+                if (MathUtilities.AreEquals(vValue, value)) { return; }
                 vValue = value;
                 OnPropertyChanged(nameof(Value));
                 if (vValue.HasValue) {
@@ -24,7 +25,7 @@ namespace CardboardFactory.ProductPriceCalculation.ViewModel {
                 }
             }
         }
-        private int? vValue;
+        private double? vValue;
 
         string IDataErrorInfo.Error => ValidateValue();
 
@@ -41,12 +42,12 @@ namespace CardboardFactory.ProductPriceCalculation.ViewModel {
 
         private string ValidateValue() {
             if (Value == null) { return $"{DisplayName} должна быть числом"; }
-            if (Value <= 0) { return $"{DisplayName} должна быть больше 0"; }
+            if (Value < 0) { return $"{DisplayName} должна быть больше 0"; }
             return null;
         }
 
         private void Initialize(ProductParameter parameter) {
-            Value = (int)(parameter.Value * 1000);
+            Value = parameter.Value * 1000;
         }
     }
 }
