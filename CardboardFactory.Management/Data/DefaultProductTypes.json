@@ -4,15 +4,15 @@
         "Parameters": {
             "Длина": {
                 "Name": "Длина",
-                "Value": 0.0
+                "Value": null
             },
             "Ширина": {
                 "Name": "Ширина",
-                "Value": 0.0
+                "Value": null
             },
             "Высота": {
                 "Name": "Высота",
-                "Value": 0.0
+                "Value": null
             }
         },
         "SubProducts": [
@@ -47,15 +47,15 @@
         "Parameters": {
             "Длина": {
                 "Name": "Длина",
-                "Value": 0.0
+                "Value": null
             },
             "Ширина": {
                 "Name": "Ширина",
-                "Value": 0.0
+                "Value": null
             },
             "Высота": {
                 "Name": "Высота",
-                "Value": 0.0
+                "Value": null
             }
         },
         "SubProducts": [
@@ -90,15 +90,15 @@
         "Parameters": {
             "Длина": {
                 "Name": "Длина",
-                "Value": 0.0
+                "Value": null
             },
             "Ширина": {
                 "Name": "Ширина",
-                "Value": 0.0
+                "Value": null
             },
             "Высота": {
                 "Name": "Высота",
-                "Value": 0.0
+                "Value": null
             },
             "Толщина": {
                 "Name": "Толщина",
@@ -145,15 +145,15 @@
         "Parameters": {
             "Длина": {
                 "Name": "Длина",
-                "Value": 0.0
+                "Value": null
             },
             "Ширина": {
                 "Name": "Ширина",
-                "Value": 0.0
+                "Value": null
             },
             "Высота": {
                 "Name": "Высота",
-                "Value": 0.0
+                "Value": null
             },
             "Толщина": {
                 "Name": "Толщина",
@@ -200,15 +200,15 @@
         "Parameters": {
             "Длина": {
                 "Name": "Длина",
-                "Value": 0.0
+                "Value": null
             },
             "Ширина": {
                 "Name": "Ширина",
-                "Value": 0.0
+                "Value": null
             },
             "Высота": {
                 "Name": "Высота",
-                "Value": 0.0
+                "Value": null
             }
         },
         "SubProducts": [
@@ -243,15 +243,15 @@
         "Parameters": {
             "Длина": {
                 "Name": "Длина",
-                "Value": 0.0
+                "Value": null
             },
             "Ширина": {
                 "Name": "Ширина",
-                "Value": 0.0
+                "Value": null
             },
             "Высота": {
                 "Name": "Высота",
-                "Value": 0.0
+                "Value": null
             },
             "Толщина": {
                 "Name": "Толщина",
@@ -329,15 +329,15 @@
         "Parameters": {
             "Длина": {
                 "Name": "Длина",
-                "Value": 0.0
+                "Value": null
             },
             "Ширина": {
                 "Name": "Ширина",
-                "Value": 0.0
+                "Value": null
             },
             "Высота": {
                 "Name": "Высота",
-                "Value": 0.0
+                "Value": null
             }
         },
         "SubProducts": [
@@ -395,15 +395,15 @@
         "Parameters": {
             "Длина": {
                 "Name": "Длина",
-                "Value": 0.0
+                "Value": null
             },
             "Ширина": {
                 "Name": "Ширина",
-                "Value": 0.0
+                "Value": null
             },
             "Высота": {
                 "Name": "Высота",
-                "Value": 0.0
+                "Value": null
             }
         },
         "SubProducts": [
@@ -461,15 +461,15 @@
         "Parameters": {
             "Длина": {
                 "Name": "Длина",
-                "Value": 0.0
+                "Value": null
             },
             "Ширина": {
                 "Name": "Ширина",
-                "Value": 0.0
+                "Value": null
             },
             "Высота": {
                 "Name": "Высота",
-                "Value": 0.0
+                "Value": null
             }
         },
         "SubProducts": [
@@ -504,15 +504,15 @@
         "Parameters": {
             "Длина": {
                 "Name": "Длина",
-                "Value": 0.0
+                "Value": null
             },
             "Ширина": {
                 "Name": "Ширина",
-                "Value": 0.0
+                "Value": null
             },
             "Высота": {
                 "Name": "Высота",
-                "Value": 0.0
+                "Value": null
             }
         },
         "SubProducts": [
@@ -547,15 +547,15 @@
         "Parameters": {
             "Длина": {
                 "Name": "Длина",
-                "Value": 0.0
+                "Value": null
             },
             "Ширина": {
                 "Name": "Ширина",
-                "Value": 0.0
+                "Value": null
             },
             "Высота": {
                 "Name": "Высота",
-                "Value": 0.0
+                "Value": null
             },
             "Толщина": {
                 "Name": "Толщина",
@@ -602,15 +602,15 @@
         "Parameters": {
             "Длина": {
                 "Name": "Длина",
-                "Value": 0.0
+                "Value": null
             },
             "Ширина": {
                 "Name": "Ширина",
-                "Value": 0.0
+                "Value": null
             },
             "Высота": {
                 "Name": "Высота",
-                "Value": 0.0
+                "Value": null
             }
         },
         "SubProducts": [
@@ -645,15 +645,15 @@
         "Parameters": {
             "Длина": {
                 "Name": "Длина",
-                "Value": 0.0
+                "Value": null
             },
             "Ширина": {
                 "Name": "Ширина",
-                "Value": 0.0
+                "Value": null
             },
             "Высота": {
                 "Name": "Высота",
-                "Value": 0.0
+                "Value": null
             },
             "Толщина": {
                 "Name": "Толщина",
@@ -699,15 +699,15 @@
         "Parameters": {
             "Длина": {
                 "Name": "Длина",
-                "Value": 0.0
+                "Value": null
             },
             "Ширина": {
                 "Name": "Ширина",
-                "Value": 0.0
+                "Value": null
             },
             "Высота": {
                 "Name": "Высота",
-                "Value": 0.0
+                "Value": null
             }
         },
         "SubProducts": [
@@ -742,11 +742,11 @@
         "Parameters": {
             "Длина": {
                 "Name": "Длина",
-                "Value": 0.0
+                "Value": null
             },
             "Ширина": {
                 "Name": "Ширина",
-                "Value": 0.0
+                "Value": null
             }
         },
         "SubProducts": [
@@ -773,15 +773,15 @@
         "Parameters": {
             "Длина": {
                 "Name": "Длина",
-                "Value": 0.0
+                "Value": null
             },
             "Ширина": {
                 "Name": "Ширина",
-                "Value": 0.0
+                "Value": null
             },
             "Высота": {
                 "Name": "Высота",
-                "Value": 0.0
+                "Value": null
             },
             "Толщина": {
                 "Name": "Толщина",
@@ -828,15 +828,15 @@
         "Parameters": {
             "Длина": {
                 "Name": "Длина",
-                "Value": 0.0
+                "Value": null
             },
             "Ширина": {
                 "Name": "Ширина",
-                "Value": 0.0
+                "Value": null
             },
             "Высота": {
                 "Name": "Высота",
-                "Value": 0.0
+                "Value": null
             }
         },
         "SubProducts": [
@@ -865,5 +865,5 @@
             }
         ],
         "StampKnivesLengthFormula": "([L1] + 2 * [L2]) * 4"
-    }  //"Короб 0422(Поддон самоскладывающийся)"
+    } //"Короб 0422(Поддон самоскладывающийся)"
 ]
