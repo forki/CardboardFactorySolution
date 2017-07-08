@@ -1,8 +1,7 @@
 language: csharp
-solution: "./CardboardFactorySolution.sln"
+solution: "./CardboardFactorySolution.Core.sln"
 install:
-- travis_retry nuget restore ./CardboardFactorySolution.sln
+- travis_retry nuget restore ./CardboardFactorySolution.Core.sln
 script:
-- xbuild ./CardboardFactorySolution.sln
+- xbuild ./CardboardFactorySolution.Core.sln
 - mono ./packages/NUnit.ConsoleRunner*/tools/nunit3-console.exe ./CardboardFactory.Core.Test/bin/Debug/CardboardFactory.Core.Test.dll
-- mono ./packages/NUnit.ConsoleRunner*/tools/nunit3-console.exe ./CardboardFactory.WpfCore.Test/bin/Debug/CardboardFactory.WpfCore.Test.dll
