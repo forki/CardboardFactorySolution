@@ -1,7 +1,0 @@
-language: csharp
-solution: "./CardboardFactorySolution.sln"
-install:
-  - travis_retry nuget restore ./CardboardFactorySolution.sln
-script:
-  - xbuild ./CardboardFactorySolution.sln
-  - mono ./packages/NUnit.ConsoleRunner*/tools/nunit3-console.exe ./CardboardFactory.Core.Test/bin/Debug/CardboardFactory.Core.Test.dll
