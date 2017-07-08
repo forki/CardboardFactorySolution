@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Input;
 
-namespace CardboardFactory.Core {
+namespace CardboardFactory.WpfCore {
     public abstract class WorkspaceViewModel : ViewModelBase {
         public ICommand CloseCommand {
             get {

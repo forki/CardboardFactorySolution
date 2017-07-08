@@ -111,9 +111,17 @@
       <Project>{CE4796E7-06C1-4727-A6D9-0325101554DE}</Project>
       <Name>CardboardFactory.Core</Name>
     </ProjectReference>
+    <ProjectReference Include="..\CardboardFactory.DataAccess\CardboardFactory.DataAccess.csproj">
+      <Project>{93C9D8F4-3778-4289-941A-487FC288874E}</Project>
+      <Name>CardboardFactory.DataAccess</Name>
+    </ProjectReference>
     <ProjectReference Include="..\CardboardFactory.UserControlLibrary\CardboardFactory.UserControlLibrary.csproj">
       <Project>{7fa405e9-ea82-4b93-8385-674b9a6c21ce}</Project>
       <Name>CardboardFactory.UserControlLibrary</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CardboardFactory.WpfCore\CardboardFactory.WpfCore.csproj">
+      <Project>{F781B573-E7C3-427B-A292-B58BA59EC881}</Project>
+      <Name>CardboardFactory.WpfCore</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

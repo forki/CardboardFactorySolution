@@ -2,7 +2,7 @@
 using System.Diagnostics;
 using System.Windows.Input;
 
-namespace CardboardFactory.Core {
+namespace CardboardFactory.WpfCore {
     public class RelayCommand : ICommand {
         private readonly Action<object> ExecuteHandler;
         private readonly Predicate<object> CanExecuteHandler;

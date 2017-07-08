@@ -1,7 +1,7 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:core="clr-namespace:CardboardFactory.Core;assembly=CardboardFactory.Core"
-                    xmlns:productPriceCalculation="clr-namespace:CardboardFactory.ProductPriceCalculation;assembly=CardboardFactory.ProductPriceCalculation">
+                    xmlns:productPriceCalculation="clr-namespace:CardboardFactory.ProductPriceCalculation;assembly=CardboardFactory.ProductPriceCalculation"
+                    xmlns:wpfCore="clr-namespace:CardboardFactory.WpfCore;assembly=CardboardFactory.WpfCore">
     <DataTemplate DataType="{x:Type productPriceCalculation:ProductPriceCalculationMainViewModel}">
         <productPriceCalculation:ProductPriceCalculationMain />
     </DataTemplate>
@@ -9,7 +9,7 @@
     <DataTemplate x:Key="CommandsTemplate">
         <ItemsControl IsTabStop="False" ItemsSource="{Binding}" Margin="6,2">
             <ItemsControl.ItemTemplate>
-                <DataTemplate DataType="core:CommandViewModel">
+                <DataTemplate DataType="wpfCore:CommandViewModel">
                     <Button Command="{Binding Path=Command}" HorizontalAlignment="Stretch" Padding="5" Margin="0,5,0,5">
                         <TextBlock Text="{Binding Path=DisplayName}" TextWrapping="Wrap" TextAlignment="Center"
                                    FontSize="16" />
@@ -19,7 +19,7 @@
         </ItemsControl>
     </DataTemplate>
 
-    <DataTemplate x:Key="ClosableTabItemTemplate" DataType="core:WorkspaceViewModel">
+    <DataTemplate x:Key="ClosableTabItemTemplate" DataType="wpfCore:WorkspaceViewModel">
         <DockPanel>
             <Button
                 Command="{Binding Path=CloseCommand}"

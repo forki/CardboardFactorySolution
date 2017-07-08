@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel;
-using CardboardFactory.Core;
 using CardboardFactory.Core.Product;
 using CardboardFactory.Core.Tools;
+using CardboardFactory.WpfCore;
 
 namespace CardboardFactory.ProductPriceCalculation.ViewModel {
     public class ProductParameterViewModel : ViewModelBase, IDataErrorInfo {

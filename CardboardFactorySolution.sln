@@ -13,6 +13,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CardboardFactory.UserContro
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CardboardFactory.ProductPriceCalculation", "CardboardFactory.ProductPriceCalculation\CardboardFactory.ProductPriceCalculation.csproj", "{4A53E2ED-0002-4E5F-BAC7-FBAED5E65907}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CardboardFactory.DataAccess", "CardboardFactory.DataAccess\CardboardFactory.DataAccess.csproj", "{93C9D8F4-3778-4289-941A-487FC288874E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CardboardFactory.WpfCore", "CardboardFactory.WpfCore\CardboardFactory.WpfCore.csproj", "{F781B573-E7C3-427B-A292-B58BA59EC881}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CardboardFactory.WpfCore.Test", "CardboardFactory.WpfCore.Test\CardboardFactory.WpfCore.Test.csproj", "{9CB691E2-6BA4-4559-8F3A-D6D651B62619}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +45,18 @@ Global
 		{4A53E2ED-0002-4E5F-BAC7-FBAED5E65907}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4A53E2ED-0002-4E5F-BAC7-FBAED5E65907}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4A53E2ED-0002-4E5F-BAC7-FBAED5E65907}.Release|Any CPU.Build.0 = Release|Any CPU
+		{93C9D8F4-3778-4289-941A-487FC288874E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{93C9D8F4-3778-4289-941A-487FC288874E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{93C9D8F4-3778-4289-941A-487FC288874E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{93C9D8F4-3778-4289-941A-487FC288874E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F781B573-E7C3-427B-A292-B58BA59EC881}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F781B573-E7C3-427B-A292-B58BA59EC881}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F781B573-E7C3-427B-A292-B58BA59EC881}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F781B573-E7C3-427B-A292-B58BA59EC881}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9CB691E2-6BA4-4559-8F3A-D6D651B62619}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9CB691E2-6BA4-4559-8F3A-D6D651B62619}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9CB691E2-6BA4-4559-8F3A-D6D651B62619}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9CB691E2-6BA4-4559-8F3A-D6D651B62619}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

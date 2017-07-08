@@ -2,7 +2,7 @@
 using System.ComponentModel;
 using System.Diagnostics;
 
-namespace CardboardFactory.Core {
+namespace CardboardFactory.WpfCore {
     public abstract class ViewModelBase : INotifyPropertyChanged, IDisposable {
         private readonly bool ThrowOnInvalidPropertyName = false;
 

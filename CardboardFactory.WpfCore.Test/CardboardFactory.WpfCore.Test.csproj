@@ -3,11 +3,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{1A582879-15B0-4D8C-A157-1ADC36102F47}</ProjectGuid>
+    <ProjectGuid>{9CB691E2-6BA4-4559-8F3A-D6D651B62619}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>CardboardFactory.Core.Test</RootNamespace>
-    <AssemblyName>CardboardFactory.Core.Test</AssemblyName>
+    <RootNamespace>CardboardFactory.WpfCore.Test</RootNamespace>
+    <AssemblyName>CardboardFactory.WpfCore.Test</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -44,18 +44,17 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="EvaluationRules\TestRule.cs" />
-    <Compile Include="EvaluationRules\TestRuleSet.cs" />
-    <Compile Include="Product\ProductTypeTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RelayCommandTest.cs" />
+    <Compile Include="TestCommandViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\CardboardFactory.Core\CardboardFactory.Core.csproj">
-      <Project>{CE4796E7-06C1-4727-A6D9-0325101554DE}</Project>
-      <Name>CardboardFactory.Core</Name>
+    <ProjectReference Include="..\CardboardFactory.WpfCore\CardboardFactory.WpfCore.csproj">
+      <Project>{F781B573-E7C3-427B-A292-B58BA59EC881}</Project>
+      <Name>CardboardFactory.WpfCore</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />

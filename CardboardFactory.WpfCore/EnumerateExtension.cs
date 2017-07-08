@@ -2,7 +2,7 @@
 using System.Windows.Markup;
 using CardboardFactory.Core.Properties;
 
-namespace CardboardFactory.Core {
+namespace CardboardFactory.WpfCore {
     public sealed class EnumerateExtension : MarkupExtension {
         public Type Type { get; set; }
 

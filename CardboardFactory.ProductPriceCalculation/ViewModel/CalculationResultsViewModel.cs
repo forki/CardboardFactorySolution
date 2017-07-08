@@ -1,6 +1,7 @@
 ﻿using System.Collections.ObjectModel;
 using CardboardFactory.Core;
 using CardboardFactory.ProductPriceCalculation.Model;
+using CardboardFactory.WpfCore;
 
 namespace CardboardFactory.ProductPriceCalculation.ViewModel {
     public class CalculationResultsViewModel : ViewModelBase {
