@@ -1,15 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Text;
-using System.Windows;
-using System.Windows.Resources;
 using CardboardFactory.Core.Product;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
-using Formatting = Newtonsoft.Json.Formatting;
 
 namespace CardboardFactory.DataAccess.Product {
     public class ProductTypesRepository {
@@ -44,15 +40,16 @@ namespace CardboardFactory.DataAccess.Product {
             try {
                 var serializer = new JsonSerializer {
                     NullValueHandling = NullValueHandling.Ignore,
-                    Converters = { new StringEnumConverter(false) }
+                    Converters = {
+                        new StringEnumConverter(false)
+                    }
                 };
-                using (var sw = new StreamWriter(StorageFileName)) {
+                using (var sw = new StreamWriter(StorageFileName, false, Encoding.Default)) {
                     using (JsonWriter writer = new JsonTextWriter(sw)) {
                         writer.Formatting = Formatting.Indented;
                         serializer.Serialize(writer, AllProductTypes);
                     }
                 }
-
             } catch (Exception e) {
                 Console.WriteLine(@"error: " + e);
             }
@@ -61,13 +58,14 @@ namespace CardboardFactory.DataAccess.Product {
         private void LoadProductTypes() {
             var serializer = new JsonSerializer {
                 NullValueHandling = NullValueHandling.Ignore,
-                Converters = { new StringEnumConverter(false) }
+                Converters = {
+                    new StringEnumConverter(false)
+                }
             };
             try {
-                using (var textReader = new StreamReader(StorageFileName)) {
+                using (var textReader = new StreamReader(StorageFileName, Encoding.Default)) {
                     var productTypes = serializer.Deserialize<ProductType[]>(new JsonTextReader(textReader));
                     if (productTypes == null) {
-                        Debug.WriteLine("Failed to load data from file");
                         ProductTypes = LoadCustomersFromBackUp();
                         return;
                     }
@@ -76,7 +74,6 @@ namespace CardboardFactory.DataAccess.Product {
                     }
                 }
             } catch (Exception exception) when (exception is FileNotFoundException || exception is DirectoryNotFoundException) {
-                Debug.WriteLine(exception);
                 ProductTypes = LoadCustomersFromBackUp();
             }
         }
@@ -84,22 +81,14 @@ namespace CardboardFactory.DataAccess.Product {
         private static Dictionary<string, ProductType> LoadCustomersFromBackUp() {
             var serializer = new JsonSerializer {
                 NullValueHandling = NullValueHandling.Ignore,
-                Converters = { new StringEnumConverter(false) }
+                Converters = {
+                    new StringEnumConverter(false)
+                }
             };
-            using (Stream stream = GetResourceStream()) {
-                TextReader tr = new StreamReader(stream, Encoding.Default);
-                var productTypes = serializer.Deserialize<ProductType[]>(new JsonTextReader(tr));
+            using (var textReader = new StreamReader(BackUpDataFile, Encoding.Default)) {
+                var productTypes = serializer.Deserialize<ProductType[]>(new JsonTextReader(textReader));
                 return productTypes?.ToDictionary(type => type.Name, type => type);
             }
-        }
-
-        private static Stream GetResourceStream() {
-            var uri = new Uri(BackUpDataFile, UriKind.RelativeOrAbsolute);
-            StreamResourceInfo info = Application.GetResourceStream(uri);
-            if (info?.Stream == null) {
-                throw new ApplicationException("Missing resource file: " + BackUpDataFile);
-            }
-            return info.Stream;
         }
     }
 }
