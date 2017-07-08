@@ -1,8 +1,7 @@
 language: csharp
-solution: CardboardFactorySolution.sln
+solution: "./CardboardFactorySolution.sln"
 install:
-  - nuget restore solution-name.sln
-  - nuget install NUnit.Runners -Version 2.6.4 -OutputDirectory testrunner
+  - travis_retry nuget restore ./CardboardFactorySolution.sln
 script:
-  - xbuild /p:Configuration=Release solution-name.sln
-  - mono ./testrunner/NUnit.Runners.2.6.4/tools/nunit-console.exe ./CardboardFactory.Core.Test/bin/Release/CardboardFactory.Core.Test.dll
+  - xbuild ./CardboardFactorySolution.sln
+  - mono ./packages/NUnit.ConsoleRunner*/tools/nunit3-console.exe ./CardboardFactory.Core.Test/bin/Debug/CardboardFactory.Core.Test.dll
