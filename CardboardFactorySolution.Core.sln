@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CardboardFactory.Core", "Ca
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CardboardFactory.Core.Test", "CardboardFactory.Core.Test\CardboardFactory.Core.Test.csproj", "{1A582879-15B0-4D8C-A157-1ADC36102F47}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CardboardFactory.DataAccess", "CardboardFactory.DataAccess\CardboardFactory.DataAccess.csproj", "{93C9D8F4-3778-4289-941A-487FC288874E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{1A582879-15B0-4D8C-A157-1ADC36102F47}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1A582879-15B0-4D8C-A157-1ADC36102F47}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1A582879-15B0-4D8C-A157-1ADC36102F47}.Release|Any CPU.Build.0 = Release|Any CPU
+		{93C9D8F4-3778-4289-941A-487FC288874E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{93C9D8F4-3778-4289-941A-487FC288874E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{93C9D8F4-3778-4289-941A-487FC288874E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{93C9D8F4-3778-4289-941A-487FC288874E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
