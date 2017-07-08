@@ -8,8 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace CardboardFactory.Management.Properties {
-    using System;
+namespace CardboardFactory.OrderCreation.Properties {
     
     
     /// <summary>
@@ -38,8 +37,8 @@ namespace CardboardFactory.Management.Properties {
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
-                if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("CardboardFactory.Management.Properties.Resources", typeof(Resources).Assembly);
+                if ((resourceMan == null)) {
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("CardboardFactory.OrderCreation.Properties.Resources", typeof(Resources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -57,33 +56,6 @@ namespace CardboardFactory.Management.Properties {
             }
             set {
                 resourceCulture = value;
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Оформить заказ.
-        /// </summary>
-        internal static string MainWindowViewModel_Command_OrderCreation {
-            get {
-                return ResourceManager.GetString("MainWindowViewModel_Command_OrderCreation", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Расчёт стоимости изделия.
-        /// </summary>
-        internal static string MainWindowViewModel_Command_ProductPriceCalculation {
-            get {
-                return ResourceManager.GetString("MainWindowViewModel_Command_ProductPriceCalculation", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Cardboar Factory Solution.
-        /// </summary>
-        internal static string MainWindowViewModel_DisplayName {
-            get {
-                return ResourceManager.GetString("MainWindowViewModel_DisplayName", resourceCulture);
             }
         }
     }

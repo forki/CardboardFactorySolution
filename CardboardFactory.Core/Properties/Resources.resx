@@ -117,6 +117,33 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="CardboardBrands_D" xml:space="preserve">
+    <value>Д</value>
+  </data>
+  <data name="CardboardBrands_P" xml:space="preserve">
+    <value>П</value>
+  </data>
+  <data name="CardboardBrands_T" xml:space="preserve">
+    <value>Т</value>
+  </data>
+  <data name="CardboardClasses_Class21" xml:space="preserve">
+    <value>21</value>
+  </data>
+  <data name="CardboardClasses_Class22" xml:space="preserve">
+    <value>22</value>
+  </data>
+  <data name="CardboardClasses_Class23" xml:space="preserve">
+    <value>23</value>
+  </data>
+  <data name="CardboardColors_Brown" xml:space="preserve">
+    <value>Бурый</value>
+  </data>
+  <data name="CardboardColors_White" xml:space="preserve">
+    <value>Белый</value>
+  </data>
+  <data name="CardboardColors_WhiteWhite" xml:space="preserve">
+    <value>Бело/белый</value>
+  </data>
   <data name="CorrugationTypes_All" xml:space="preserve">
     <value>All</value>
   </data>

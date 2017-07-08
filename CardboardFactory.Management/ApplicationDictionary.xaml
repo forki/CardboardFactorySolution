@@ -1,9 +1,14 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:productPriceCalculation="clr-namespace:CardboardFactory.ProductPriceCalculation;assembly=CardboardFactory.ProductPriceCalculation"
-                    xmlns:wpfCore="clr-namespace:CardboardFactory.WpfCore;assembly=CardboardFactory.WpfCore">
+                    xmlns:wpfCore="clr-namespace:CardboardFactory.WpfCore;assembly=CardboardFactory.WpfCore"
+                    xmlns:orderCreation="clr-namespace:CardboardFactory.OrderCreation;assembly=CardboardFactory.OrderCreation">
     <DataTemplate DataType="{x:Type productPriceCalculation:ProductPriceCalculationMainViewModel}">
         <productPriceCalculation:ProductPriceCalculationMain />
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type orderCreation:OrderCreationMainViewModel}">
+        <orderCreation:OrderCreationMain />
     </DataTemplate>
 
     <DataTemplate x:Key="CommandsTemplate">

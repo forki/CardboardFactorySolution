@@ -40,6 +40,9 @@
     <Compile Include="EvaluationRules\EvaluationRuleLibrary.cs" />
     <Compile Include="EvaluationRules\Rule.cs" />
     <Compile Include="EvaluationRules\RuleSet.cs" />
+    <Compile Include="Order\CardboardColors.cs" />
+    <Compile Include="Order\CardboardBrands.cs" />
+    <Compile Include="Order\CardboardClasses.cs" />
     <Compile Include="Product\CorrugationTypes.cs" />
     <Compile Include="Product\LengthFormula.cs" />
     <Compile Include="Product\ProductParameter.cs" />
