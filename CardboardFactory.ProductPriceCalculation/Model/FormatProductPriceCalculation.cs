@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using CardboardFactory.Core;
 using CardboardFactory.Core.Product;
-using CardboardFactory.Core.Tools;
+using CardboardFactory.WpfCore.Tools;
 
 namespace CardboardFactory.ProductPriceCalculation.Model {
     public class FormatProductPriceCalculation {

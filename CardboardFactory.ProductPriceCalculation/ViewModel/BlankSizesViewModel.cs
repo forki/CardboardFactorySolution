@@ -1,4 +1,5 @@
 ﻿using CardboardFactory.Core;
+using CardboardFactory.WpfCore;
 
 namespace CardboardFactory.ProductPriceCalculation.ViewModel {
     public class BlankSizesViewModel : ViewModelBase {

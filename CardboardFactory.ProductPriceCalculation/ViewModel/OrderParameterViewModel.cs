@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
-using CardboardFactory.Core;
 using CardboardFactory.Core.Product;
 using CardboardFactory.Core.Tools;
 using CardboardFactory.ProductPriceCalculation.Model;
+using CardboardFactory.WpfCore;
 
 namespace CardboardFactory.ProductPriceCalculation.ViewModel {
     public class OrderParameterViewModel : ViewModelBase, IDataErrorInfo {
@@ -78,7 +78,9 @@ namespace CardboardFactory.ProductPriceCalculation.ViewModel {
 
         private void GetCorrugationTypes() {
             Type type = typeof(CorrugationTypes);
-            foreach (CorrugationTypes @enum in Enum.GetValues(type).OfType<CorrugationTypes>().Except(new[] { Core.Product.CorrugationTypes.All, })) {
+            foreach (CorrugationTypes @enum in Enum.GetValues(type).OfType<CorrugationTypes>().Except(new[] {
+                Core.Product.CorrugationTypes.All
+            })) {
                 string name = type.Name + "_" + @enum;
                 string enumText = Core.Properties.Resources.ResourceManager.GetString(name);
                 if (enumText == null) { continue; }

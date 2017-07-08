@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Input;
 
-namespace CardboardFactory.Core {
+namespace CardboardFactory.WpfCore {
     public class CommandViewModel : ViewModelBase {
         public override string DisplayName { get; }
 

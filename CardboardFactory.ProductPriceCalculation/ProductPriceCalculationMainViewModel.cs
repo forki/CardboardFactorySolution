@@ -4,10 +4,11 @@ using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.IO;
 using System.Windows.Input;
-using CardboardFactory.Core;
 using CardboardFactory.Core.Product;
+using CardboardFactory.DataAccess.Product;
 using CardboardFactory.ProductPriceCalculation.Model;
 using CardboardFactory.ProductPriceCalculation.ViewModel;
+using CardboardFactory.WpfCore;
 using Microsoft.Win32;
 
 namespace CardboardFactory.ProductPriceCalculation {

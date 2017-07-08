@@ -37,17 +37,9 @@
     <ApplicationIcon>Box.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newtonsoft.Json.10.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
-    <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
-    <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="System.Net.Http" />
     <Reference Include="System.Xaml">
       <RequiredTargetFramework>4.0</RequiredTargetFramework>
     </Reference>
@@ -94,7 +86,6 @@
     <Resource Include="Data\DefaultProductTypes.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
-    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -103,9 +94,9 @@
     <Resource Include="Box.ico" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\CardboardFactory.Core\CardboardFactory.Core.csproj">
-      <Project>{ce4796e7-06c1-4727-a6d9-0325101554de}</Project>
-      <Name>CardboardFactory.Core</Name>
+    <ProjectReference Include="..\CardboardFactory.DataAccess\CardboardFactory.DataAccess.csproj">
+      <Project>{93C9D8F4-3778-4289-941A-487FC288874E}</Project>
+      <Name>CardboardFactory.DataAccess</Name>
     </ProjectReference>
     <ProjectReference Include="..\CardboardFactory.ProductPriceCalculation\CardboardFactory.ProductPriceCalculation.csproj">
       <Project>{4a53e2ed-0002-4e5f-bac7-fbaed5e65907}</Project>
@@ -114,6 +105,10 @@
     <ProjectReference Include="..\CardboardFactory.UserControlLibrary\CardboardFactory.UserControlLibrary.csproj">
       <Project>{7fa405e9-ea82-4b93-8385-674b9a6c21ce}</Project>
       <Name>CardboardFactory.UserControlLibrary</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CardboardFactory.WpfCore\CardboardFactory.WpfCore.csproj">
+      <Project>{F781B573-E7C3-427B-A292-B58BA59EC881}</Project>
+      <Name>CardboardFactory.WpfCore</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

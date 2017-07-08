@@ -1,7 +1,7 @@
 ﻿using System;
 using NUnit.Framework;
 
-namespace CardboardFactory.Core.Test {
+namespace CardboardFactory.WpfCore.Test {
     [TestFixture]
     public class RelayCommandTest {
         [Test]

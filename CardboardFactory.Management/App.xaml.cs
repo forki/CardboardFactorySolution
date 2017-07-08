@@ -2,7 +2,7 @@
 using System.Globalization;
 using System.Windows;
 using System.Windows.Markup;
-using CardboardFactory.Core.Product;
+using CardboardFactory.DataAccess.Product;
 using CardboardFactory.Management.ViewModel;
 
 namespace CardboardFactory.Management {

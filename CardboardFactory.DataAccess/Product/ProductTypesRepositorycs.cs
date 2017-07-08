@@ -6,11 +6,12 @@ using System.Linq;
 using System.Text;
 using System.Windows;
 using System.Windows.Resources;
+using CardboardFactory.Core.Product;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Formatting = Newtonsoft.Json.Formatting;
 
-namespace CardboardFactory.Core.Product {
+namespace CardboardFactory.DataAccess.Product {
     public class ProductTypesRepository {
         private const string BackUpDataFile = "Data/DefaultProductTypes.json";
 

@@ -6,9 +6,9 @@ using System.ComponentModel;
 using System.Diagnostics;
 using System.Linq;
 using System.Windows.Data;
-using CardboardFactory.Core;
-using CardboardFactory.Core.Product;
+using CardboardFactory.DataAccess.Product;
 using CardboardFactory.ProductPriceCalculation;
+using CardboardFactory.WpfCore;
 
 namespace CardboardFactory.Management.ViewModel {
     public class MainWindowViewModel : WorkspaceViewModel {
