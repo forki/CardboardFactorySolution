@@ -4,18 +4,16 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{6E06EEB8-4A12-4121-9D0D-D5444D023A7F}</ProjectGuid>
-    <OutputType>WinExe</OutputType>
-    <RootNamespace>CardboardFactory.Management</RootNamespace>
-    <AssemblyName>CardboardFactory.Management</AssemblyName>
+    <ProjectGuid>{63C49072-4A1F-488F-844F-28A07CA89124}</ProjectGuid>
+    <OutputType>library</OutputType>
+    <RootNamespace>CardboardFactory.OrderCreation</RootNamespace>
+    <AssemblyName>CardboardFactory.OrderCreation</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <WarningLevel>4</WarningLevel>
-    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -25,16 +23,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-  </PropertyGroup>
-  <PropertyGroup>
-    <ApplicationIcon>Box.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="PresentationCore">
@@ -54,8 +48,6 @@
       <HintPath>..\packages\Microsoft.Xaml.4.0.0.1\lib\System.Xaml.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="System.Xml" />
-    <Reference Include="System.Core" />
     <Reference Include="UIAutomationProvider">
       <HintPath>..\packages\Microsoft.Xaml.4.0.0.1\lib\UIAutomationProvider.dll</HintPath>
       <Private>True</Private>
@@ -66,29 +58,21 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <ApplicationDefinition Include="App.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </ApplicationDefinition>
-    <Compile Include="ViewModel\MainWindowViewModel.cs" />
-    <Page Include="ApplicationDictionary.xaml">
+    <Page Include="OrderCreationDictionary.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="MainWindow.xaml">
+    <Page Include="OrderCreationMain.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Compile Include="App.xaml.cs">
-      <DependentUpon>App.xaml</DependentUpon>
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="MainWindow.xaml.cs">
-      <DependentUpon>MainWindow.xaml</DependentUpon>
+    <Compile Include="OrderCreationMain.xaml.cs">
+      <DependentUpon>OrderCreationMain.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="OrderCreationMainViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -101,29 +85,14 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Content Include="Data\DefaultProductTypes.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Box.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\CardboardFactory.DataAccess\CardboardFactory.DataAccess.csproj">
-      <Project>{93C9D8F4-3778-4289-941A-487FC288874E}</Project>
-      <Name>CardboardFactory.DataAccess</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\CardboardFactory.OrderCreation\CardboardFactory.OrderCreation.csproj">
-      <Project>{63C49072-4A1F-488F-844F-28A07CA89124}</Project>
-      <Name>CardboardFactory.OrderCreation</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\CardboardFactory.ProductPriceCalculation\CardboardFactory.ProductPriceCalculation.csproj">
-      <Project>{4a53e2ed-0002-4e5f-bac7-fbaed5e65907}</Project>
-      <Name>CardboardFactory.ProductPriceCalculation</Name>
+    <ProjectReference Include="..\CardboardFactory.Core\CardboardFactory.Core.csproj">
+      <Project>{CE4796E7-06C1-4727-A6D9-0325101554DE}</Project>
+      <Name>CardboardFactory.Core</Name>
     </ProjectReference>
     <ProjectReference Include="..\CardboardFactory.UserControlLibrary\CardboardFactory.UserControlLibrary.csproj">
       <Project>{7fa405e9-ea82-4b93-8385-674b9a6c21ce}</Project>
@@ -133,11 +102,6 @@
       <Project>{F781B573-E7C3-427B-A292-B58BA59EC881}</Project>
       <Name>CardboardFactory.WpfCore</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="DataAccess\" />
-    <Folder Include="DataTypes\" />
-    <Folder Include="View\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -61,6 +61,87 @@ namespace CardboardFactory.Core.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Д.
+        /// </summary>
+        public static string CardboardBrands_D {
+            get {
+                return ResourceManager.GetString("CardboardBrands_D", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to П.
+        /// </summary>
+        public static string CardboardBrands_P {
+            get {
+                return ResourceManager.GetString("CardboardBrands_P", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Т.
+        /// </summary>
+        public static string CardboardBrands_T {
+            get {
+                return ResourceManager.GetString("CardboardBrands_T", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 21.
+        /// </summary>
+        public static string CardboardClasses_Class21 {
+            get {
+                return ResourceManager.GetString("CardboardClasses_Class21", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 22.
+        /// </summary>
+        public static string CardboardClasses_Class22 {
+            get {
+                return ResourceManager.GetString("CardboardClasses_Class22", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 23.
+        /// </summary>
+        public static string CardboardClasses_Class23 {
+            get {
+                return ResourceManager.GetString("CardboardClasses_Class23", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Бурый.
+        /// </summary>
+        public static string CardboardColors_Brown {
+            get {
+                return ResourceManager.GetString("CardboardColors_Brown", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Белый.
+        /// </summary>
+        public static string CardboardColors_White {
+            get {
+                return ResourceManager.GetString("CardboardColors_White", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Бело/белый.
+        /// </summary>
+        public static string CardboardColors_WhiteWhite {
+            get {
+                return ResourceManager.GetString("CardboardColors_WhiteWhite", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to All.
         /// </summary>
         public static string CorrugationTypes_All {
