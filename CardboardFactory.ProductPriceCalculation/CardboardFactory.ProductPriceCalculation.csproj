@@ -31,10 +31,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="FSharp.Core, Version=4.4.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <HintPath>..\packages\FSharp.Core.4.2.1\lib\net45\FSharp.Core.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="PresentationCore">
       <HintPath>..\packages\Microsoft.Xaml.4.0.0.1\lib\PresentationCore.dll</HintPath>
       <Private>True</Private>
@@ -136,10 +132,6 @@
     <ProjectReference Include="..\CardboardFactory.DataAccess\CardboardFactory.DataAccess.csproj">
       <Project>{93C9D8F4-3778-4289-941A-487FC288874E}</Project>
       <Name>CardboardFactory.DataAccess</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\CardboardFactory.Domain.Product\CardboardFactory.Domain.Product.fsproj">
-      <Project>{1691d4b7-e640-4a24-8d67-6e9e2b14f631}</Project>
-      <Name>CardboardFactory.Domain.Product</Name>
     </ProjectReference>
     <ProjectReference Include="..\CardboardFactory.UserControlLibrary\CardboardFactory.UserControlLibrary.csproj">
       <Project>{7fa405e9-ea82-4b93-8385-674b9a6c21ce}</Project>

@@ -2,14 +2,14 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
+using CardboardFactory.Core.Product;
 using CardboardFactory.Core.Tools;
-using CardboardFactory.Domain.Product;
 using CardboardFactory.ProductPriceCalculation.Model;
 using CardboardFactory.WpfCore;
 
 namespace CardboardFactory.ProductPriceCalculation.ViewModel {
     public class OrderParameterViewModel : ViewModelBase, IDataErrorInfo {
-        private readonly Dictionary<string, Product.CorrugationTypes> EnumMap = new Dictionary<string, Product.CorrugationTypes>();
+        private readonly Dictionary<string, CorrugationTypes> EnumMap = new Dictionary<string, CorrugationTypes>();
 
         private OrderParameter Parameter;
 
@@ -77,9 +77,9 @@ namespace CardboardFactory.ProductPriceCalculation.ViewModel {
         }
 
         private void GetCorrugationTypes() {
-            Type type = typeof(Product.CorrugationTypes);
-            foreach (Product.CorrugationTypes @enum in Enum.GetValues(type).OfType<Product.CorrugationTypes>().Except(new[] {
-                Product.CorrugationTypes.All, Product.CorrugationTypes.AllWithoutPolygraphy
+            Type type = typeof(CorrugationTypes);
+            foreach (CorrugationTypes @enum in Enum.GetValues(type).OfType<CorrugationTypes>().Except(new[] {
+                Core.Product.CorrugationTypes.All
             })) {
                 string name = type.Name + "_" + @enum;
                 string enumText = Core.Properties.Resources.ResourceManager.GetString(name);

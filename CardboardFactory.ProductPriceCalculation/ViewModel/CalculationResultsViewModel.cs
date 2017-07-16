@@ -1,6 +1,5 @@
 ﻿using System.Collections.ObjectModel;
 using CardboardFactory.Core;
-using CardboardFactory.Domain.Product;
 using CardboardFactory.ProductPriceCalculation.Model;
 using CardboardFactory.WpfCore;
 
@@ -18,7 +17,7 @@ namespace CardboardFactory.ProductPriceCalculation.ViewModel {
             get {
                 if (Result != null && vBlanksSizes == null) {
                     vBlanksSizes = new ObservableCollection<BlankSizesViewModel>();
-                    foreach (Product.SheetSizes blankSizes in Result.BlanksSizes) {
+                    foreach (BlankSizes blankSizes in Result.BlanksSizes) {
                         vBlanksSizes.Add(new BlankSizesViewModel(blankSizes));
                     }
                     return vBlanksSizes;

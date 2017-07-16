@@ -1,15 +1,15 @@
-﻿using CardboardFactory.Domain.Product;
+﻿using CardboardFactory.Core;
 using CardboardFactory.WpfCore;
 
 namespace CardboardFactory.ProductPriceCalculation.ViewModel {
     public class BlankSizesViewModel : ViewModelBase {
-        private readonly Product.SheetSizes BlankSizes;
+        private readonly BlankSizes BlankSizes;
 
-        public BlankSizesViewModel(Product.SheetSizes blankSizes) {
+        public BlankSizesViewModel(BlankSizes blankSizes) {
             BlankSizes = blankSizes;
         }
 
-        public override string DisplayName => BlankSizes.Name;
+        public override string DisplayName => BlankSizes.BlankName;
 
         public double? LengthOne => BlankSizes?.LengthOne;
 

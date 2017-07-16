@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
+using CardboardFactory.Core.Product;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 
@@ -11,7 +12,7 @@ namespace CardboardFactory.DataAccess.Product {
         private const string BackUpDataFile = "Data/DefaultProductTypes.json";
 
         private readonly string StorageFileName;
-        private Dictionary<string, Domain.Product.Product.ProductType> ProductTypes = new Dictionary<string, Domain.Product.Product.ProductType>();
+        private Dictionary<string, ProductType> ProductTypes = new Dictionary<string, ProductType>();
 
         /// <summary>
         /// Load data from default resource file: Data/DefaultProductTypes.json
@@ -25,14 +26,14 @@ namespace CardboardFactory.DataAccess.Product {
             LoadProductTypes();
         }
 
-        public Domain.Product.Product.ProductType[] AllProductTypes => ProductTypes.Values.ToArray();
+        public ProductType[] AllProductTypes => ProductTypes.Values.ToArray();
 
         public string[] AllProductTypeKeys => ProductTypes.Keys.ToArray();
 
-        public Domain.Product.Product.ProductType GetProductType(string name) {
-            Domain.Product.Product.ProductType prototype;
+        public ProductType GetProductType(string name) {
+            ProductType prototype;
             if (ProductTypes.TryGetValue(name, out prototype)) { }
-            return prototype;
+            return new ProductType(prototype ?? new ProductType());
         }
 
         public void SaveProductTypes() {
@@ -63,12 +64,12 @@ namespace CardboardFactory.DataAccess.Product {
             };
             try {
                 using (var textReader = new StreamReader(StorageFileName, Encoding.Default)) {
-                    var productTypes = serializer.Deserialize<Domain.Product.Product.ProductType[]>(new JsonTextReader(textReader));
+                    var productTypes = serializer.Deserialize<ProductType[]>(new JsonTextReader(textReader));
                     if (productTypes == null) {
                         ProductTypes = LoadCustomersFromBackUp();
                         return;
                     }
-                    foreach (Domain.Product.Product.ProductType productType in productTypes) {
+                    foreach (ProductType productType in productTypes) {
                         ProductTypes.Add(productType.Name, productType);
                     }
                 }
@@ -77,7 +78,7 @@ namespace CardboardFactory.DataAccess.Product {
             }
         }
 
-        private static Dictionary<string, Domain.Product.Product.ProductType> LoadCustomersFromBackUp() {
+        private static Dictionary<string, ProductType> LoadCustomersFromBackUp() {
             var serializer = new JsonSerializer {
                 NullValueHandling = NullValueHandling.Ignore,
                 Converters = {
@@ -85,7 +86,7 @@ namespace CardboardFactory.DataAccess.Product {
                 }
             };
             using (var textReader = new StreamReader(BackUpDataFile, Encoding.Default)) {
-                var productTypes = serializer.Deserialize<Domain.Product.Product.ProductType[]>(new JsonTextReader(textReader));
+                var productTypes = serializer.Deserialize<ProductType[]>(new JsonTextReader(textReader));
                 return productTypes?.ToDictionary(type => type.Name, type => type);
             }
         }
