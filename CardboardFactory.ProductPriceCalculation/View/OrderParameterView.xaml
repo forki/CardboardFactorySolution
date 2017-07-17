@@ -25,7 +25,7 @@
 
         <Label Grid.Row="0" Grid.Column="0" Margin="6,2" Content="Выберите тип гофрокартона: " />
         <ComboBox Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" Margin="6,2"
-                  ItemsSource="{Binding CorrugationTypes}"
+                  ItemsSource="{Binding AllCorrugationTypes}"
                   SelectedItem="{Binding CorrugationType}"
                   MinWidth="50" MinHeight="28" />
 

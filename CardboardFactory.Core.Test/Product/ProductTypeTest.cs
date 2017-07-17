@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using CardboardFactory.Core.Product;
+using Domain.Core.Cardboard;
 using NUnit.Framework;
 
 namespace CardboardFactory.Core.Test.Product {
@@ -21,8 +22,8 @@ namespace CardboardFactory.Core.Test.Product {
 
         [Test]
         public void CalculateLengthsForBox0200Test() {
-            CorrugationTypes executionOne = CorrugationTypes.C | CorrugationTypes.EAndC;
-            var executionTwo = CorrugationTypes.E;
+            CorrugationTypes.Enum executionOne = CorrugationTypes.Enum.C | CorrugationTypes.Enum.EAndC;
+            var executionTwo = CorrugationTypes.Enum.E;
 
             var product = new ProductType("Короб 0200");
             product.Parameters.Clear();
@@ -51,21 +52,21 @@ namespace CardboardFactory.Core.Test.Product {
             product.Parameters["Ширина"].Value = 0.300;
             product.Parameters["Высота"].Value = 0.200;
 
-            Assert.That(() => product.CalculateBlankSizeses(CorrugationTypes.C)[0].LengthOne, Is.EqualTo(1.258));
-            Assert.That(() => product.CalculateBlankSizeses(CorrugationTypes.C)[0].LengthTwo, Is.EqualTo(0.356));
+            Assert.That(() => product.CalculateBlankSizeses(CorrugationTypes.Enum.C)[0].LengthOne, Is.EqualTo(1.258));
+            Assert.That(() => product.CalculateBlankSizeses(CorrugationTypes.Enum.C)[0].LengthTwo, Is.EqualTo(0.356));
 
-            Assert.That(() => product.CalculateBlankSizeses(CorrugationTypes.EAndC)[0].LengthOne, Is.EqualTo(1.258));
-            Assert.That(() => product.CalculateBlankSizeses(CorrugationTypes.EAndC)[0].LengthTwo, Is.EqualTo(0.356));
+            Assert.That(() => product.CalculateBlankSizeses(CorrugationTypes.Enum.EAndC)[0].LengthOne, Is.EqualTo(1.258));
+            Assert.That(() => product.CalculateBlankSizeses(CorrugationTypes.Enum.EAndC)[0].LengthTwo, Is.EqualTo(0.356));
 
-            Assert.That(() => product.CalculateBlankSizeses(CorrugationTypes.E)[0].LengthOne, Is.EqualTo(1.238));
-            Assert.That(() => product.CalculateBlankSizeses(CorrugationTypes.E)[0].LengthTwo, Is.EqualTo(0.352));
+            Assert.That(() => product.CalculateBlankSizeses(CorrugationTypes.Enum.E)[0].LengthOne, Is.EqualTo(1.238));
+            Assert.That(() => product.CalculateBlankSizeses(CorrugationTypes.Enum.E)[0].LengthTwo, Is.EqualTo(0.352));
         }
 
         [Test]
-        [TestCase(CorrugationTypes.C)]
-        [TestCase(CorrugationTypes.E)]
-        [TestCase(CorrugationTypes.EAndC)]
-        public void CalculateLengthsWithCustomValuesTest(CorrugationTypes type) {
+        [TestCase(CorrugationTypes.Enum.C)]
+        [TestCase(CorrugationTypes.Enum.E)]
+        [TestCase(CorrugationTypes.Enum.EAndC)]
+        public void CalculateLengthsWithCustomValuesTest(CorrugationTypes.Enum type) {
             var productType = new ProductType(DefaultProductType);
             productType.Parameters[LengthName].Value = 120.0;
             Assert.AreEqual(120.0, productType.Parameters[LengthName].Value);
@@ -73,8 +74,8 @@ namespace CardboardFactory.Core.Test.Product {
             Assert.AreEqual(240.0, productType.Parameters[WidthName].Value);
 
             var sub = new SubProduct {
-                LengthOneFormulas = { [CorrugationTypes.All] = new LengthFormula(CorrugationTypes.All, $"[{LengthName}] + [{LengthName}]") },
-                LengthTwoFormulas = { [CorrugationTypes.All] = new LengthFormula(CorrugationTypes.All, $"[{WidthName}] + [{LengthName}] + 50]") }
+                LengthOneFormulas = { [CorrugationTypes.Enum.All] = new LengthFormula(CorrugationTypes.Enum.All, $"[{LengthName}] + [{LengthName}]") },
+                LengthTwoFormulas = { [CorrugationTypes.Enum.All] = new LengthFormula(CorrugationTypes.Enum.All, $"[{WidthName}] + [{LengthName}] + 50]") }
             };
             productType.SubProducts.Add(sub);
             List<BlankSizes> blankSizeses = productType.CalculateBlankSizeses(type);
@@ -87,37 +88,37 @@ namespace CardboardFactory.Core.Test.Product {
         public void CalculateLengthsWithErrorsTest() {
             var productType = new ProductType(DefaultProductType);
             var sub = new SubProduct {
-                LengthOneFormulas = { [CorrugationTypes.All] = new LengthFormula(CorrugationTypes.All, "[BadParameter]") }
+                LengthOneFormulas = { [CorrugationTypes.Enum.All] = new LengthFormula(CorrugationTypes.Enum.All, "[BadParameter]") }
             };
             productType.SubProducts.Add(sub);
-            Assert.Throws<ProductTypeBadArgumentException>(() => productType.CalculateBlankSizeses(CorrugationTypes.C));
+            Assert.Throws<ProductTypeBadArgumentException>(() => productType.CalculateBlankSizeses(CorrugationTypes.Enum.C));
 
             productType = new ProductType(DefaultProductType);
             sub = new SubProduct {
-                LengthOneFormulas = { [CorrugationTypes.All] = new LengthFormula(CorrugationTypes.All, string.Empty) }
+                LengthOneFormulas = { [CorrugationTypes.Enum.All] = new LengthFormula(CorrugationTypes.Enum.All, string.Empty) }
             };
             productType.SubProducts.Add(sub);
-            Assert.Throws<ProductTypeNoFormulaException>(() => productType.CalculateBlankSizeses(CorrugationTypes.C));
+            Assert.Throws<ProductTypeNoFormulaException>(() => productType.CalculateBlankSizeses(CorrugationTypes.Enum.C));
 
             productType = new ProductType(DefaultProductType);
             sub = new SubProduct {
-                LengthOneFormulas = { [CorrugationTypes.All] = new LengthFormula(CorrugationTypes.All, "=-5224=+-342fff....+342---2342") }
+                LengthOneFormulas = { [CorrugationTypes.Enum.All] = new LengthFormula(CorrugationTypes.Enum.All, "=-5224=+-342fff....+342---2342") }
             };
             productType.SubProducts.Add(sub);
-            Assert.Throws<ProductTypeExpressionHasErrorException>(() => productType.CalculateBlankSizeses(CorrugationTypes.C));
+            Assert.Throws<ProductTypeExpressionHasErrorException>(() => productType.CalculateBlankSizeses(CorrugationTypes.Enum.C));
         }
 
         [Test]
-        [TestCase(CorrugationTypes.C, 120.0, 240.0, "[Length] + [Length]", "[Width] + [Length] + 50]", 240.0, 410.0)]
-        [TestCase(CorrugationTypes.E, 120.0, 120.0, "[Length] + [Width]", "[Width] + [Width] + 50]", 240.0, 290.0)]
-        [TestCase(CorrugationTypes.C, 400.0, 240.0, "[Length] * 2", "[Length] - [Width] + 50]", 800.0, 210.0)]
-        public void CalculateLengthsWithNewValuesAndFormulasTest(CorrugationTypes type, double length, double width, string formulaLengthOne, string formulaLengthTwo, double result1, double result2) {
+        [TestCase(CorrugationTypes.Enum.C, 120.0, 240.0, "[Length] + [Length]", "[Width] + [Length] + 50]", 240.0, 410.0)]
+        [TestCase(CorrugationTypes.Enum.E, 120.0, 120.0, "[Length] + [Width]", "[Width] + [Width] + 50]", 240.0, 290.0)]
+        [TestCase(CorrugationTypes.Enum.C, 400.0, 240.0, "[Length] * 2", "[Length] - [Width] + 50]", 800.0, 210.0)]
+        public void CalculateLengthsWithNewValuesAndFormulasTest(CorrugationTypes.Enum type, double length, double width, string formulaLengthOne, string formulaLengthTwo, double result1, double result2) {
             var productType = new ProductType(DefaultProductType);
             productType.Parameters[LengthName].Value = length;
             productType.Parameters[WidthName].Value = width;
             var sub = new SubProduct {
-                LengthOneFormulas = { [CorrugationTypes.All] = new LengthFormula(CorrugationTypes.All, formulaLengthOne) },
-                LengthTwoFormulas = { [CorrugationTypes.All] = new LengthFormula(CorrugationTypes.All, formulaLengthTwo) }
+                LengthOneFormulas = { [CorrugationTypes.Enum.All] = new LengthFormula(CorrugationTypes.Enum.All, formulaLengthOne) },
+                LengthTwoFormulas = { [CorrugationTypes.Enum.All] = new LengthFormula(CorrugationTypes.Enum.All, formulaLengthTwo) }
             };
             productType.SubProducts.Add(sub);
             List<BlankSizes> blankSizeses = productType.CalculateBlankSizeses(type);

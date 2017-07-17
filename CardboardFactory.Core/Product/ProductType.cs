@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using CardboardFactory.Core.Tools;
+using Domain.Core.Cardboard;
 using NCalc;
 
 namespace CardboardFactory.Core.Product {
@@ -9,7 +10,7 @@ namespace CardboardFactory.Core.Product {
         private const string LENGTH_ONE_PATTERN = "L1";
         private const string LENGTH_TWO_PATTERN = "L2";
 
-        private CorrugationTypes CorrugationTypeForCalculations;
+        private CorrugationTypes.Enum CorrugationTypeForCalculations;
         private bool IsSimpleProduct => SubProducts.Count == 1;
 
         public string Name { get; set; }
@@ -35,7 +36,7 @@ namespace CardboardFactory.Core.Product {
             StampKnivesLengthFormula = other.StampKnivesLengthFormula;
         }
 
-        public List<BlankSizes> CalculateBlankSizeses(CorrugationTypes corrugationType) {
+        public List<BlankSizes> CalculateBlankSizeses(CorrugationTypes.Enum corrugationType) {
             var blanks = new List<BlankSizes>();
             foreach (SubProduct subProduct in SubProducts) {
                 var blank = new BlankSizes {
@@ -56,17 +57,17 @@ namespace CardboardFactory.Core.Product {
             }
         }
 
-        public double CalculateStampKnivesLength(CorrugationTypes corrugationType) {
+        public double CalculateStampKnivesLength(CorrugationTypes.Enum corrugationType) {
             CorrugationTypeForCalculations = corrugationType;
             return CreateAndEvaluateExpresion(StampKnivesLengthFormula);
         }
 
-        private double CalculateSheetLength(CorrugationTypes corrugationType, SubProduct subProduct) {
+        private double CalculateSheetLength(CorrugationTypes.Enum corrugationType, SubProduct subProduct) {
             LengthFormula formula = subProduct.LengthOneFormulas.Where(pair => pair.Key.HasFlag(corrugationType)).Select(pair => pair.Value).FirstOrDefault();
             return CreateAndEvaluateExpresion(formula?.FormulaText ?? throw new ProductTypeNoFormulaException($"No formula found for {corrugationType}"));
         }
 
-        private double CalculateSheetWidth(CorrugationTypes corrugationType, SubProduct subProduct) {
+        private double CalculateSheetWidth(CorrugationTypes.Enum corrugationType, SubProduct subProduct) {
             LengthFormula formula = subProduct.LengthTwoFormulas.Where(pair => pair.Key.HasFlag(corrugationType)).Select(pair => pair.Value).FirstOrDefault();
             return CreateAndEvaluateExpresion(formula?.FormulaText ?? throw new ProductTypeNoFormulaException($"No formula found for {corrugationType}"));
         }
@@ -97,7 +98,7 @@ namespace CardboardFactory.Core.Product {
             throw new ProductTypeBadArgumentException($"There is no parameter with name: {name} in product");
         }
 
-        private double GetLangthOneParameter(string name, string pattern, Func<CorrugationTypes, SubProduct, double> func) {
+        private double GetLangthOneParameter(string name, string pattern, Func<CorrugationTypes.Enum, SubProduct, double> func) {
             if (name.Equals(pattern)) {
                 SubProduct subProduct = SubProducts.SingleOrDefault();
                 if (!IsSimpleProduct || subProduct == null) {

@@ -2,14 +2,14 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
-using CardboardFactory.Core.Product;
 using CardboardFactory.Core.Tools;
 using CardboardFactory.ProductPriceCalculation.Model;
 using CardboardFactory.WpfCore;
+using Domain.Core.Cardboard;
 
 namespace CardboardFactory.ProductPriceCalculation.ViewModel {
     public class OrderParameterViewModel : ViewModelBase, IDataErrorInfo {
-        private readonly Dictionary<string, CorrugationTypes> EnumMap = new Dictionary<string, CorrugationTypes>();
+        private IDictionary<string, CorrugationTypes.Enum> EnumMap;
 
         private OrderParameter Parameter;
 
@@ -21,7 +21,7 @@ namespace CardboardFactory.ProductPriceCalculation.ViewModel {
 
         public override string DisplayName => null;
 
-        public string[] CorrugationTypes => vCorrugationTypes ?? (vCorrugationTypes = EnumMap.Keys.ToArray());
+        public string[] AllCorrugationTypes => vCorrugationTypes ?? (vCorrugationTypes = EnumMap.Keys.ToArray());
         private string[] vCorrugationTypes;
 
         public string CorrugationType {
@@ -70,22 +70,18 @@ namespace CardboardFactory.ProductPriceCalculation.ViewModel {
         }
 
         private void Initialize(OrderParameter parameter) {
-            CorrugationType = CorrugationTypes.First();
+            CorrugationType = AllCorrugationTypes.First();
             CardboardPrice = parameter.CardboardPrice;
             ShouldCalculateStampPrice = parameter.ShouldCalculateStampPrice;
             PricePerKnifeMeter = parameter.PricePerKnifeMeter;
         }
 
         private void GetCorrugationTypes() {
-            Type type = typeof(CorrugationTypes);
-            foreach (CorrugationTypes @enum in Enum.GetValues(type).OfType<CorrugationTypes>().Except(new[] {
-                Core.Product.CorrugationTypes.All
-            })) {
-                string name = type.Name + "_" + @enum;
-                string enumText = Core.Properties.Resources.ResourceManager.GetString(name);
-                if (enumText == null) { continue; }
-                EnumMap[enumText] = @enum;
-            }
+            Type type = typeof(CorrugationTypes.Enum);
+            EnumMap = CorrugationTypes.stringToEnumMap(Enum.GetValues(type).OfType<CorrugationTypes.Enum>().Except(new[] {
+                CorrugationTypes.Enum.All, CorrugationTypes.Enum.AllWithoutPolygraphy
+            }).ToArray());
+            CorrugationType = AllCorrugationTypes.First();
         }
 
         string IDataErrorInfo.Error {
