@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.IO;
+using System.Linq;
 using System.Windows.Input;
 using CardboardFactory.DataAccess.Product;
 using CardboardFactory.ProductPriceCalculation.Model;
@@ -15,8 +16,8 @@ namespace CardboardFactory.ProductPriceCalculation {
     public class ProductPriceCalculationMainViewModel : WorkspaceViewModel, IDataErrorInfo {
         private readonly ProductTypesRepository _repository;
 
-        private Product.ProductType _productType;
         private readonly OrderParameter _orderParameter;
+        private Product.ProductType _productType;
         private ProductCalculationResult _calculationResult;
 
         public ProductPriceCalculationMainViewModel(ProductTypesRepository repository) : this(repository, null, new OrderParameter(), new ProductCalculationResult()) { }
@@ -92,7 +93,9 @@ namespace CardboardFactory.ProductPriceCalculation {
         private void SetNewProductType() {
             Product.ProductType newProductType = _repository.GetProductType(ProductType);
             if (_productType != null) {
-                newProductType = Product.setParametersFromOther(newProductType, _productType);
+                newProductType = Product.setParametersFromOtherParameters(
+                    newProductType,
+                    ProductParameters.Select(model => model.GetDomainType()).ToDictionary(parameter => parameter.Name, parameter => parameter));
             }
             _productType = newProductType;
             vProductParameters = null;
@@ -100,7 +103,10 @@ namespace CardboardFactory.ProductPriceCalculation {
         }
 
         private void CalculateProductExecuteHandler(object o1) {
-            var calculator = new ProductPriceCalculator(_productType, _orderParameter);
+            Product.ProductType newProductType = Product.setParametersFromOtherParameters(
+                _productType,
+                ProductParameters.Select(model => model.GetDomainType()).ToDictionary(parameter => parameter.Name, parameter => parameter));
+            var calculator = new ProductPriceCalculator(newProductType, _orderParameter);
             _calculationResult = calculator.Calculate();
             vCalculationResult = null;
             OnPropertyChanged(nameof(CalculationResult));

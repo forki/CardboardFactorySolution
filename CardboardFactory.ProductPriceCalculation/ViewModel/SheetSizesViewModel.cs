@@ -2,10 +2,10 @@
 using Domain.Product;
 
 namespace CardboardFactory.ProductPriceCalculation.ViewModel {
-    public class BlankSizesViewModel : ViewModelBase {
+    public class SheetSizesViewModel : ViewModelBase {
         private readonly Product.SheetSizes SheetSizes;
 
-        public BlankSizesViewModel(Product.SheetSizes sheetSizes) {
+        public SheetSizesViewModel(Product.SheetSizes sheetSizes) {
             SheetSizes = sheetSizes;
         }
 

@@ -1,5 +1,4 @@
 ﻿using System.Collections.ObjectModel;
-using CardboardFactory.Core;
 using CardboardFactory.ProductPriceCalculation.Model;
 using CardboardFactory.WpfCore;
 using Domain.Product;
@@ -14,19 +13,19 @@ namespace CardboardFactory.ProductPriceCalculation.ViewModel {
 
         public override string DisplayName => null;
 
-        public ObservableCollection<BlankSizesViewModel> SteetSizes {
+        public ObservableCollection<SheetSizesViewModel> SteetSizes {
             get {
                 if (Result != null && vSteetSizes == null) {
-                    vSteetSizes = new ObservableCollection<BlankSizesViewModel>();
+                    vSteetSizes = new ObservableCollection<SheetSizesViewModel>();
                     foreach (Product.SheetSizes sheetSizes in Result.SheetsSizes) {
-                        vSteetSizes.Add(new BlankSizesViewModel(sheetSizes));
+                        vSteetSizes.Add(new SheetSizesViewModel(sheetSizes));
                     }
                     return vSteetSizes;
                 }
                 return vSteetSizes;
             }
         }
-        private ObservableCollection<BlankSizesViewModel> vSteetSizes;
+        private ObservableCollection<SheetSizesViewModel> vSteetSizes;
 
         public double? ProductArea => Result?.ProductArea;
 

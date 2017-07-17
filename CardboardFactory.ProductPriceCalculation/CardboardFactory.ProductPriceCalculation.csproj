@@ -65,12 +65,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ProductPriceCalculationMainViewModel.cs" />
-    <Compile Include="ViewModel\BlankSizesViewModel.cs" />
+    <Compile Include="ViewModel\SheetSizesViewModel.cs" />
     <Compile Include="ViewModel\CalculationResultsViewModel.cs" />
     <Compile Include="ViewModel\OrderParameterViewModel.cs" />
     <Compile Include="ViewModel\ProductParameterViewModel.cs" />
-    <Compile Include="View\BlankSizesView.xaml.cs">
-      <DependentUpon>BlankSizesView.xaml</DependentUpon>
+    <Compile Include="View\SheetSizesView.xaml.cs">
+      <DependentUpon>SheetSizesView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\CalculationResultsView.xaml.cs">
       <DependentUpon>CalculationResultsView.xaml</DependentUpon>
@@ -97,7 +97,7 @@
       <DependentUpon>ProductPriceCalculationMain.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="View\BlankSizesView.xaml">
+    <Page Include="View\SheetSizesView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

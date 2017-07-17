@@ -1,6 +1,6 @@
 ﻿namespace CardboardFactory.ProductPriceCalculation.View {
-    public partial class BlankSizesView {
-        public BlankSizesView() {
+    public partial class SheetSizesView {
+        public SheetSizesView() {
             InitializeComponent();
         }
     }
