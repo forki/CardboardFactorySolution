@@ -1,4 +1,4 @@
-﻿namespace Domain.Core.AssemblyInfo
+﻿namespace Domain.Product.AssemblyInfo
 
 open System.Reflection
 open System.Runtime.CompilerServices
@@ -7,11 +7,11 @@ open System.Runtime.InteropServices
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[<assembly: AssemblyTitle("Domain.Core")>]
+[<assembly: AssemblyTitle("Domain.Product")>]
 [<assembly: AssemblyDescription("")>]
 [<assembly: AssemblyConfiguration("")>]
 [<assembly: AssemblyCompany("Vasilisk Development")>]
-[<assembly: AssemblyProduct("Domain.Core")>]
+[<assembly: AssemblyProduct("Domain.Product")>]
 [<assembly: AssemblyCopyright("Copyright ©  2017")>]
 [<assembly: AssemblyTrademark("")>]
 [<assembly: AssemblyCulture("")>]
@@ -22,7 +22,7 @@ open System.Runtime.InteropServices
 [<assembly: ComVisible(false)>]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[<assembly: Guid("7f06259e-cc1c-4bc4-8bb9-b9b504b5df83")>]
+[<assembly: Guid("746b5753-d2ae-4169-9b5d-f64d5a5b286c")>]
 
 // Version information for an assembly consists of the following four values:
 // 

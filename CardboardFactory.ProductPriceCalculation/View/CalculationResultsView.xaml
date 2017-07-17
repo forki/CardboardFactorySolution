@@ -34,7 +34,7 @@
         </Grid.ColumnDefinitions>
 
         <ContentControl Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" Margin="0,0,0,20"
-                        Content="{Binding Path=BlanksSizes}"
+                        Content="{Binding Path=SteetSizes}"
                         ContentTemplate="{StaticResource BlanksSizesTemplate}" />
 
         <Label Grid.Row="1" Grid.Column="0" Margin="6,2" Content="Площадь: " />

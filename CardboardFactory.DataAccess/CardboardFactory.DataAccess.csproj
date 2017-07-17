@@ -44,6 +44,10 @@
       <Project>{CE4796E7-06C1-4727-A6D9-0325101554DE}</Project>
       <Name>CardboardFactory.Core</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Domain.Product\Domain.Product.fsproj">
+      <Project>{746B5753-D2AE-4169-9B5D-F64D5A5B286C}</Project>
+      <Name>Domain.Product</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

@@ -1,13 +1,13 @@
 ﻿using System.ComponentModel;
-using CardboardFactory.Core.Product;
 using CardboardFactory.Core.Tools;
 using CardboardFactory.WpfCore;
+using Domain.Product;
 
 namespace CardboardFactory.ProductPriceCalculation.ViewModel {
     public class ProductParameterViewModel : ViewModelBase, IDataErrorInfo {
-        private readonly ProductParameter Parameter;
+        private readonly Product.ProductParameter Parameter;
 
-        public ProductParameterViewModel(ProductParameter parameter) {
+        public ProductParameterViewModel(Product.ProductParameter parameter) {
             Parameter = parameter;
             Initialize(Parameter);
         }
@@ -21,7 +21,7 @@ namespace CardboardFactory.ProductPriceCalculation.ViewModel {
                 vValue = value;
                 OnPropertyChanged(nameof(Value));
                 if (vValue.HasValue) {
-                    Parameter.Value = vValue.Value / 1000.0;
+                    //TODO:Parameter.Value = vValue.Value / 1000.0;
                 }
             }
         }
@@ -46,7 +46,7 @@ namespace CardboardFactory.ProductPriceCalculation.ViewModel {
             return null;
         }
 
-        private void Initialize(ProductParameter parameter) {
+        private void Initialize(Product.ProductParameter parameter) {
             Value = parameter.Value * 1000;
         }
     }

@@ -4,18 +4,18 @@ using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.IO;
 using System.Windows.Input;
-using CardboardFactory.Core.Product;
 using CardboardFactory.DataAccess.Product;
 using CardboardFactory.ProductPriceCalculation.Model;
 using CardboardFactory.ProductPriceCalculation.ViewModel;
 using CardboardFactory.WpfCore;
+using Domain.Product;
 using Microsoft.Win32;
 
 namespace CardboardFactory.ProductPriceCalculation {
     public class ProductPriceCalculationMainViewModel : WorkspaceViewModel, IDataErrorInfo {
         private readonly ProductTypesRepository _repository;
 
-        private ProductType _productType;
+        private Product.ProductType _productType;
         private readonly OrderParameter _orderParameter;
         private ProductCalculationResult _calculationResult;
 
@@ -23,7 +23,7 @@ namespace CardboardFactory.ProductPriceCalculation {
 
         public ProductPriceCalculationMainViewModel(
             ProductTypesRepository repository,
-            ProductType productType,
+            Product.ProductType productType,
             OrderParameter orderParameter,
             ProductCalculationResult calculationResult) {
             _repository = repository;
@@ -52,7 +52,7 @@ namespace CardboardFactory.ProductPriceCalculation {
             get {
                 if (_productType != null && vProductParameters == null) {
                     vProductParameters = new ObservableCollection<ProductParameterViewModel>();
-                    foreach (KeyValuePair<string, ProductParameter> keyValuePair in _productType.Parameters) {
+                    foreach (KeyValuePair<string, Product.ProductParameter> keyValuePair in _productType.Parameters) {
                         vProductParameters.Add(new ProductParameterViewModel(keyValuePair.Value));
                     }
                 }
@@ -90,9 +90,9 @@ namespace CardboardFactory.ProductPriceCalculation {
         private RelayCommand vSaveCalculatedProductCommand;
 
         private void SetNewProductType() {
-            ProductType newProductType = _repository.GetProductType(ProductType);
+            Product.ProductType newProductType = _repository.GetProductType(ProductType);
             if (_productType != null) {
-                newProductType.SetParametersFromOther(_productType);
+                newProductType = Product.setParametersFromOther(newProductType, _productType);
             }
             _productType = newProductType;
             vProductParameters = null;

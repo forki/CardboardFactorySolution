@@ -149,6 +149,10 @@
       <Project>{7F06259E-CC1C-4BC4-8BB9-B9B504B5DF83}</Project>
       <Name>Domain.Core</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Domain.Product\Domain.Product.fsproj">
+      <Project>{746B5753-D2AE-4169-9B5D-F64D5A5B286C}</Project>
+      <Name>Domain.Product</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
