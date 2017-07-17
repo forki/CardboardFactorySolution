@@ -5,3 +5,7 @@ install:
 script:
 - xbuild ./CardboardFactorySolution.Core.sln
 - mono ./packages/NUnit.ConsoleRunner*/tools/nunit3-console.exe ./CardboardFactory.Core.Test/bin/Debug/CardboardFactory.Core.Test.dll
+notifications:
+  email:
+    on_success: never
+    on_failure: change
