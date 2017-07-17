@@ -2,16 +2,15 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
-using CardboardFactory.Core.Order;
-using CardboardFactory.Core.Product;
 using CardboardFactory.WpfCore;
+using Domain.Core.Cardboard;
 
 namespace CardboardFactory.OrderCreation {
     public class OrderCreationMainViewModel : WorkspaceViewModel, IDataErrorInfo {
-        private readonly Dictionary<string, CorrugationTypes> CorrugationTypesEnumMap = new Dictionary<string, CorrugationTypes>();
-        private readonly Dictionary<string, CardboardBrands> CardboardBrandsEnumMap = new Dictionary<string, CardboardBrands>();
-        private readonly Dictionary<string, CardboardClasses> CardboardClassesEnumMap = new Dictionary<string, CardboardClasses>();
-        private readonly Dictionary<string, CardboardColors> CardboardColorsEnumMap = new Dictionary<string, CardboardColors>();
+        private IDictionary<string, CorrugationTypes.Enum> CorrugationTypesEnumMap;
+        private IDictionary<string, CardboardBrands.Enum> CardboardBrandsEnumMap;
+        private IDictionary<string, CardboardClasses.Enum> CardboardClassesEnumMap;
+        private IDictionary<string, CardboardColors.Enum> CardboardColorsEnumMap;
 
         public override string DisplayName => "Оформление заказа на линию";
 
@@ -36,7 +35,7 @@ namespace CardboardFactory.OrderCreation {
         }
         private DateTime vOrderDateTime;
 
-        public string[] CorrugationTypes => vCorrugationTypes ?? (vCorrugationTypes = CorrugationTypesEnumMap.Keys.ToArray());
+        public string[] AllCorrugationTypes => vCorrugationTypes ?? (vCorrugationTypes = CorrugationTypesEnumMap.Keys.ToArray());
         private string[] vCorrugationTypes;
 
         public string CorrugationType {
@@ -49,7 +48,7 @@ namespace CardboardFactory.OrderCreation {
         }
         private string vCorrugationType;
 
-        public string[] CardboardBrands => vCardboardBrands ?? (vCardboardBrands = CardboardBrandsEnumMap.Keys.ToArray());
+        public string[] AllCardboardBrands => vCardboardBrands ?? (vCardboardBrands = CardboardBrandsEnumMap.Keys.ToArray());
         private string[] vCardboardBrands;
 
         public string CardboardBrand {
@@ -62,7 +61,7 @@ namespace CardboardFactory.OrderCreation {
         }
         private string vCardboardBrand;
 
-        public string[] CardboardClasses => vCardboardClasses ?? (vCardboardClasses = CardboardClassesEnumMap.Keys.ToArray());
+        public string[] AllCardboardClasses => vCardboardClasses ?? (vCardboardClasses = CardboardClassesEnumMap.Keys.ToArray());
         private string[] vCardboardClasses;
 
         public string CardboardClass {
@@ -75,7 +74,7 @@ namespace CardboardFactory.OrderCreation {
         }
         private string vCardboardClass;
 
-        public string[] CardboardColors => vCardboardColors ?? (vCardboardColors = CardboardColorsEnumMap.Keys.ToArray());
+        public string[] AllCardboardColors => vCardboardColors ?? (vCardboardColors = CardboardColorsEnumMap.Keys.ToArray());
         private string[] vCardboardColors;
 
         public string CardboardColor {
@@ -96,49 +95,30 @@ namespace CardboardFactory.OrderCreation {
         }
 
         private void GetCorrugationTypes() {
-            Type type = typeof(CorrugationTypes);
-            foreach (CorrugationTypes @enum in Enum.GetValues(type).OfType<CorrugationTypes>().Except(new[] {
-                Core.Product.CorrugationTypes.All, Core.Product.CorrugationTypes.Polygraphy
-            })) {
-                string name = type.Name + "_" + @enum;
-                string enumText = Core.Properties.Resources.ResourceManager.GetString(name);
-                if (enumText == null) { continue; }
-                CorrugationTypesEnumMap[enumText] = @enum;
-            }
-            CorrugationType = CorrugationTypes.First();
+            Type type = typeof(CorrugationTypes.Enum);
+            CorrugationTypesEnumMap = CorrugationTypes.stringToEnumMap(Enum.GetValues(type)
+                .OfType<CorrugationTypes.Enum>()
+                .Except(new[] { CorrugationTypes.Enum.All, CorrugationTypes.Enum.Polygraphy, CorrugationTypes.Enum.AllWithoutPolygraphy })
+                .ToArray());
+            CorrugationType = AllCorrugationTypes.First();
         }
 
         private void GetCardboardBrands() {
-            Type type = typeof(CardboardBrands);
-            foreach (CardboardBrands @enum in Enum.GetValues(type).OfType<CardboardBrands>()) {
-                string name = type.Name + "_" + @enum;
-                string enumText = Core.Properties.Resources.ResourceManager.GetString(name);
-                if (enumText == null) { continue; }
-                CardboardBrandsEnumMap[enumText] = @enum;
-            }
-            CardboardBrand = CardboardBrands.First();
+            Type type = typeof(CardboardBrands.Enum);
+            CardboardBrandsEnumMap = CardboardBrands.stringToEnumMap(Enum.GetValues(type).OfType<CardboardBrands.Enum>().ToArray());
+            CardboardBrand = AllCardboardBrands.First();
         }
 
         private void GetCardboardClasses() {
-            Type type = typeof(CardboardClasses);
-            foreach (CardboardClasses @enum in Enum.GetValues(type).OfType<CardboardClasses>()) {
-                string name = type.Name + "_" + @enum;
-                string enumText = Core.Properties.Resources.ResourceManager.GetString(name);
-                if (enumText == null) { continue; }
-                CardboardClassesEnumMap[enumText] = @enum;
-            }
-            CardboardClass = CardboardClasses.First();
+            Type type = typeof(CardboardClasses.Enum);
+            CardboardClassesEnumMap = CardboardClasses.stringToEnumMap(Enum.GetValues(type).OfType<CardboardClasses.Enum>().ToArray());
+            CardboardClass = AllCardboardClasses.First();
         }
 
         private void GetCardboardColors() {
-            Type type = typeof(CardboardColors);
-            foreach (CardboardColors @enum in Enum.GetValues(type).OfType<CardboardColors>()) {
-                string name = type.Name + "_" + @enum;
-                string enumText = Core.Properties.Resources.ResourceManager.GetString(name);
-                if (enumText == null) { continue; }
-                CardboardColorsEnumMap[enumText] = @enum;
-            }
-            CardboardColor = CardboardColors.First();
+            Type type = typeof(CardboardColors.Enum);
+            CardboardColorsEnumMap = CardboardColors.stringToEnumMap(Enum.GetValues(type).OfType<CardboardColors.Enum>().ToArray());
+            CardboardColor = AllCardboardColors.First();
         }
 
         public string this[string columnName] => null;

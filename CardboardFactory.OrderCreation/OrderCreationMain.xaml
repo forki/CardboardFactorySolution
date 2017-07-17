@@ -56,19 +56,19 @@
         <DockPanel Grid.Row="2" HorizontalAlignment="Stretch" Width="Auto" LastChildFill="True">
             <TextBlock Text="Тип гофры" Margin="5" />
             <ComboBox Margin="5" TabIndex="4"
-                      ItemsSource="{Binding CorrugationTypes, Mode=OneTime}"
+                      ItemsSource="{Binding AllCorrugationTypes, Mode=OneTime}"
                       SelectedItem="{Binding CorrugationType}"/>
             <TextBlock Text="Марка картона" Margin="5" />
             <ComboBox Margin="5" TabIndex="5"
-                      ItemsSource="{Binding CardboardBrands, Mode=OneTime}"
+                      ItemsSource="{Binding AllCardboardBrands, Mode=OneTime}"
                       SelectedItem="{Binding CardboardBrand}"/>
             <TextBlock Text="Класс картона" Margin="5" />
             <ComboBox Margin="5" TabIndex="6"
-                      ItemsSource="{Binding CardboardClasses, Mode=OneTime}"
+                      ItemsSource="{Binding AllCardboardClasses, Mode=OneTime}"
                       SelectedItem="{Binding CardboardClass}"/>
             <TextBlock Text="Цвет" Margin="5" />
             <ComboBox Margin="5" TabIndex="7"
-                      ItemsSource="{Binding CardboardColors, Mode=OneTime}"
+                      ItemsSource="{Binding AllCardboardColors, Mode=OneTime}"
                       SelectedItem="{Binding CardboardColor}"/>
         </DockPanel>
     </Grid>

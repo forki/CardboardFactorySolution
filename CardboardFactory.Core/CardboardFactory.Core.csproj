@@ -40,10 +40,6 @@
     <Compile Include="EvaluationRules\EvaluationRuleLibrary.cs" />
     <Compile Include="EvaluationRules\Rule.cs" />
     <Compile Include="EvaluationRules\RuleSet.cs" />
-    <Compile Include="Order\CardboardColors.cs" />
-    <Compile Include="Order\CardboardBrands.cs" />
-    <Compile Include="Order\CardboardClasses.cs" />
-    <Compile Include="Product\CorrugationTypes.cs" />
     <Compile Include="Product\LengthFormula.cs" />
     <Compile Include="Product\ProductParameter.cs" />
     <Compile Include="Product\ProductType.cs" />
@@ -62,9 +58,17 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Order\" />
+  </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Domain.Core\Domain.Core.fsproj">
+      <Project>{7F06259E-CC1C-4BC4-8BB9-B9B504B5DF83}</Project>
+      <Name>Domain.Core</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -1,11 +1,12 @@
-﻿
+﻿using Domain.Core.Cardboard;
+
 namespace CardboardFactory.Core.Product {
     public class LengthFormula {
-        public CorrugationTypes CorrugationType { get; set; } = CorrugationTypes.All;
+        public CorrugationTypes.Enum CorrugationType { get; set; } = CorrugationTypes.Enum.All;
 
         public string FormulaText { get; set; } = "Formula";
 
-        public LengthFormula(CorrugationTypes corrugationType, string formulaText) {
+        public LengthFormula(CorrugationTypes.Enum corrugationType, string formulaText) {
             CorrugationType = corrugationType;
             FormulaText = formulaText;
         }

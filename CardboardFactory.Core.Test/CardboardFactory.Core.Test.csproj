@@ -57,6 +57,10 @@
       <Project>{CE4796E7-06C1-4727-A6D9-0325101554DE}</Project>
       <Name>CardboardFactory.Core</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Domain.Core\Domain.Core.fsproj">
+      <Project>{7F06259E-CC1C-4BC4-8BB9-B9B504B5DF83}</Project>
+      <Name>Domain.Core</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

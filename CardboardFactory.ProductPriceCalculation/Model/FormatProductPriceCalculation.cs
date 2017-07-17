@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using CardboardFactory.Core;
 using CardboardFactory.Core.Product;
-using CardboardFactory.WpfCore.Tools;
+using Domain.Core.Cardboard;
 
 namespace CardboardFactory.ProductPriceCalculation.Model {
     public class FormatProductPriceCalculation {
@@ -30,8 +30,7 @@ namespace CardboardFactory.ProductPriceCalculation.Model {
                 i++;
             }
             sb.AppendLine();
-            var converter = new EnumToStringConverter();
-            sb.AppendLine($"Тип гофры: {converter.Convert(_orderParameter.CorrugationType, typeof(CorrugationTypes), null, null)}");
+            sb.AppendLine($"Тип гофры: {CorrugationTypes.enumToString(_orderParameter.CorrugationType)}");
             foreach (BlankSizes blankSizes in _calculationResult.BlanksSizes) {
                 sb.AppendLine($"{blankSizes.BlankName} L1 = {blankSizes.LengthOne:F3} L2 = {blankSizes.LengthTwo:F3}");
             }
