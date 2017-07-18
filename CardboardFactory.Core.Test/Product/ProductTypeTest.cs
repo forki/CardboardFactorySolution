@@ -20,29 +20,29 @@
 //            }
 //        };
 
-//        [Test]
-//        public void CalculateLengthsWithErrorsTest() {
-//            var productType = new ProductType(DefaultProductType);
-//            var sub = new SubProduct {
-//                LengthOneFormulas = { [CorrugationTypes.Enum.All] = new LengthFormula(CorrugationTypes.Enum.All, "[BadParameter]") }
-//            };
-//            productType.SubProducts.Add(sub);
-//            Assert.Throws<ProductTypeBadArgumentException>(() => productType.CalculateBlankSizeses(CorrugationTypes.Enum.C));
+//[Test]
+//public void CalculateLengthsWithErrorsTest() {
+//    var productType = new ProductType(DefaultProductType);
+//    var sub = new SubProduct {
+//        LengthOneFormulas = { [CorrugationTypes.Enum.All] = new LengthFormula(CorrugationTypes.Enum.All, "[BadParameter]") }
+//    };
+//    productType.SubProducts.Add(sub);
+//    Assert.Throws<ProductTypeBadArgumentException>(() => productType.CalculateBlankSizeses(CorrugationTypes.Enum.C));
 
-//            productType = new ProductType(DefaultProductType);
-//            sub = new SubProduct {
-//                LengthOneFormulas = { [CorrugationTypes.Enum.All] = new LengthFormula(CorrugationTypes.Enum.All, string.Empty) }
-//            };
-//            productType.SubProducts.Add(sub);
-//            Assert.Throws<ProductTypeNoFormulaException>(() => productType.CalculateBlankSizeses(CorrugationTypes.Enum.C));
+//    productType = new ProductType(DefaultProductType);
+//    sub = new SubProduct {
+//        LengthOneFormulas = { [CorrugationTypes.Enum.All] = new LengthFormula(CorrugationTypes.Enum.All, string.Empty) }
+//    };
+//    productType.SubProducts.Add(sub);
+//    Assert.Throws<ProductTypeNoFormulaException>(() => productType.CalculateBlankSizeses(CorrugationTypes.Enum.C));
 
-//            productType = new ProductType(DefaultProductType);
-//            sub = new SubProduct {
-//                LengthOneFormulas = { [CorrugationTypes.Enum.All] = new LengthFormula(CorrugationTypes.Enum.All, "=-5224=+-342fff....+342---2342") }
-//            };
-//            productType.SubProducts.Add(sub);
-//            Assert.Throws<ProductTypeExpressionHasErrorException>(() => productType.CalculateBlankSizeses(CorrugationTypes.Enum.C));
-//        }
+//    productType = new ProductType(DefaultProductType);
+//    sub = new SubProduct {
+//        LengthOneFormulas = { [CorrugationTypes.Enum.All] = new LengthFormula(CorrugationTypes.Enum.All, "=-5224=+-342fff....+342---2342") }
+//    };
+//    productType.SubProducts.Add(sub);
+//    Assert.Throws<ProductTypeExpressionHasErrorException>(() => productType.CalculateBlankSizeses(CorrugationTypes.Enum.C));
+//}
 
 //        [Test]
 //        [TestCase(CorrugationTypes.Enum.C, 120.0, 240.0, "[Length] + [Length]", "[Width] + [Length] + 50]", 240.0, 410.0)]
