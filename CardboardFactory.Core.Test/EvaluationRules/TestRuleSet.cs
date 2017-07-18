@@ -1,8 +1,10 @@
-﻿using CardboardFactory.Core.EvaluationRules;
+﻿using System.Diagnostics.CodeAnalysis;
+using CardboardFactory.Core.EvaluationRules;
 using NUnit.Framework;
 
 namespace CardboardFactory.Core.Test.EvaluationRules {
     [TestFixture]
+    [ExcludeFromCodeCoverage]
     public class TestRuleSet {
         [Test]
         public void HasRulesTest() {
