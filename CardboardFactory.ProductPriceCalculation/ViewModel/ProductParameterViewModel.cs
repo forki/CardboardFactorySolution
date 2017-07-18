@@ -23,7 +23,7 @@ namespace CardboardFactory.ProductPriceCalculation.ViewModel {
         private double? vValue;
 
         public Product.ProductParameter GetDomainType() {
-            return new Product.ProductParameter(DisplayName, Value.HasValue ? Value / 1000.0 : 0.0);
+            return new Product.ProductParameter(DisplayName, Value / 1000.0);
         }
 
         string IDataErrorInfo.Error => ValidateValue();

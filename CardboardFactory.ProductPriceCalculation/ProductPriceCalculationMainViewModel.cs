@@ -93,9 +93,14 @@ namespace CardboardFactory.ProductPriceCalculation {
         private void SetNewProductType() {
             Product.ProductType newProductType = _repository.GetProductType(ProductType);
             if (_productType != null) {
-                newProductType = Product.setParametersFromOtherParameters(
-                    newProductType,
-                    ProductParameters.Select(model => model.GetDomainType()).ToDictionary(parameter => parameter.Name, parameter => parameter));
+                Dictionary<string, Product.ProductParameter> existingParameters = ProductParameters
+                    .Select(model => model.GetDomainType())
+                    .ToDictionary(parameter => parameter.Name, parameter => parameter);
+
+                Dictionary<string, Product.ProductParameter> newParameters = newProductType.Parameters
+                    .ToDictionary(pair => pair.Key, pair => existingParameters.ContainsKey(pair.Key) ? existingParameters[pair.Key] : pair.Value);
+
+                newProductType = Product.SetParametersFromOtherParameters(newProductType, newParameters);
             }
             _productType = newProductType;
             vProductParameters = null;
@@ -103,7 +108,7 @@ namespace CardboardFactory.ProductPriceCalculation {
         }
 
         private void CalculateProductExecuteHandler(object o1) {
-            Product.ProductType newProductType = Product.setParametersFromOtherParameters(
+            Product.ProductType newProductType = Product.SetParametersFromOtherParameters(
                 _productType,
                 ProductParameters.Select(model => model.GetDomainType()).ToDictionary(parameter => parameter.Name, parameter => parameter));
             var calculator = new ProductPriceCalculator(newProductType, _orderParameter);

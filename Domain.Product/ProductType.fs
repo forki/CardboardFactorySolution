@@ -34,8 +34,10 @@
          member this.LengthTwo = lengthTwo
          member this.Area = lengthOne * lengthTwo
 
+     [<CompiledName("SetParametersFromOther")>] 
      let setParametersFromOther (product:ProductType, otherProduct:ProductType) = 
          { product with Parameters = otherProduct.Parameters }
 
+     [<CompiledName("SetParametersFromOtherParameters")>] 
      let setParametersFromOtherParameters (product:ProductType, otherParameters:Dictionary<string, ProductParameter>) = 
          { product with Parameters = otherParameters }
