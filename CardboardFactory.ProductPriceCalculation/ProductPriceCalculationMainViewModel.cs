@@ -31,6 +31,8 @@ namespace CardboardFactory.ProductPriceCalculation {
             _productType = productType;
             _orderParameter = orderParameter;
             _calculationResult = calculationResult;
+
+            ProductType = ProductTypeOptions.First();
         }
 
         public override string DisplayName => "Расчёт стоимости изделия";
@@ -148,6 +150,9 @@ namespace CardboardFactory.ProductPriceCalculation {
         string IDataErrorInfo.Error {
             get {
                 string error = (OrderParameter as IDataErrorInfo)?.Error;
+                if (ProductParameters == null || ProductParameters.Count == 0) {
+                    error = "Должен присутствовать хотя бы один параметр";
+                }
                 if (error == null && ProductParameters != null) {
                     foreach (ProductParameterViewModel parameterViewModel in ProductParameters) {
                         error = ((IDataErrorInfo)parameterViewModel).Error;
@@ -161,6 +166,9 @@ namespace CardboardFactory.ProductPriceCalculation {
         string IDataErrorInfo.this[string propertyName] {
             get {
                 string error = (OrderParameter as IDataErrorInfo)?[propertyName];
+                if (ProductParameters == null || ProductParameters.Count == 0) {
+                    error = "Должен присутствовать хотя бы один параметр";
+                }
                 if (error == null && ProductParameters != null) {
                     foreach (ProductParameterViewModel parameterViewModel in ProductParameters) {
                         error = ((IDataErrorInfo)parameterViewModel)[propertyName];
