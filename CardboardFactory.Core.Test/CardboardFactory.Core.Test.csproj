@@ -46,7 +46,6 @@
   <ItemGroup>
     <Compile Include="EvaluationRules\TestRule.cs" />
     <Compile Include="EvaluationRules\TestRuleSet.cs" />
-    <Compile Include="Product\ProductTypeTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
