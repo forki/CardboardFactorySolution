@@ -1,9 +1,11 @@
 ﻿using System;
+using System.Diagnostics.CodeAnalysis;
 using CardboardFactory.Core.EvaluationRules;
 using NUnit.Framework;
 
 namespace CardboardFactory.Core.Test.EvaluationRules {
     [TestFixture]
+    [ExcludeFromCodeCoverage]
     public class TestRule {
         [Test]
         public void RuleThrowsException() {

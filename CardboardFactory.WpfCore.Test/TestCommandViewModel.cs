@@ -1,8 +1,10 @@
 ﻿using System;
+using System.Diagnostics.CodeAnalysis;
 using NUnit.Framework;
 
 namespace CardboardFactory.WpfCore.Test {
     [TestFixture]
+    [ExcludeFromCodeCoverage]
     public class TestCommandViewModel {
         [Test]
         public void CommandViewModelThrowsException() {

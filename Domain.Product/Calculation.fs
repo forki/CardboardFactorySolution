@@ -35,6 +35,7 @@ module Calculation =
             |> Seq.tryFind (fun (pair) -> pair.Key.HasFlag(corrugationType))
             |> Option.map (fun (pair) -> pair.Value.FormulaText)
         match formula with
+        | Some formula when String.IsNullOrEmpty formula -> raise (ProductTypeNoFormulaException(sprintf "Formula is empty for %A" corrugationType))
         | Some formula -> formula
         | None -> raise (ProductTypeNoFormulaException(sprintf "No formula found for %A" corrugationType))
 
