@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CardboardFactory.DataAccess
 EndProject
 Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Domain.Core", "Domain.Core\Domain.Core.fsproj", "{7F06259E-CC1C-4BC4-8BB9-B9B504B5DF83}"
 EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Domain.Product", "Domain.Product\Domain.Product.fsproj", "{746B5753-D2AE-4169-9B5D-F64D5A5B286C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{7F06259E-CC1C-4BC4-8BB9-B9B504B5DF83}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7F06259E-CC1C-4BC4-8BB9-B9B504B5DF83}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7F06259E-CC1C-4BC4-8BB9-B9B504B5DF83}.Release|Any CPU.Build.0 = Release|Any CPU
+		{746B5753-D2AE-4169-9B5D-F64D5A5B286C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{746B5753-D2AE-4169-9B5D-F64D5A5B286C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{746B5753-D2AE-4169-9B5D-F64D5A5B286C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{746B5753-D2AE-4169-9B5D-F64D5A5B286C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

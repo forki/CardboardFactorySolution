@@ -32,7 +32,7 @@
         <Label Grid.Row="1" Grid.Column="0" Margin="6,2" Content="Расценка за м кв.: " />
         <TextBox Grid.Row="1" Grid.Column="1" Margin="6,2" Width="100" VerticalContentAlignment="Center"
                  TextAlignment="Center" FontSize="16"
-                 Text="{Binding CardboardPrice, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" />
+                 Text="{Binding CardboardPrice, StringFormat='{}{#.##}', ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" />
         <Label Grid.Row="1" Grid.Column="2" Content="грн." FontSize="16" Width="50" />
 
         <CheckBox Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3" Margin="6,2"
@@ -43,7 +43,7 @@
                Visibility="{Binding ShouldCalculateStampPrice, Converter={StaticResource BooleanToVisibilityConverter}}" />
         <TextBox Grid.Row="3" Grid.Column="1" Margin="6,2" Width="100" VerticalContentAlignment="Center"
                  TextAlignment="Center" FontSize="16"
-                 Text="{Binding PricePerKnifeMeter, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                 Text="{Binding PricePerKnifeMeter, StringFormat='{}{#.##}', ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
                  Visibility="{Binding ShouldCalculateStampPrice, Converter={StaticResource BooleanToVisibilityConverter}}" />
         <Label Grid.Row="3" Grid.Column="2" Content="грн." FontSize="16" Width="50"
                Visibility="{Binding ShouldCalculateStampPrice, Converter={StaticResource BooleanToVisibilityConverter}}" />

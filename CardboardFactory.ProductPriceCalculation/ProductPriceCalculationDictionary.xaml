@@ -22,11 +22,11 @@
         <view:CalculationResultsView />
     </DataTemplate>
 
-    <DataTemplate x:Key="BlanksSizesTemplate" DataType="viewModel:BlankSizesViewModel">
+    <DataTemplate x:Key="BlanksSizesTemplate" DataType="viewModel:SheetSizesViewModel">
         <ItemsControl IsTabStop="False" ItemsSource="{Binding}" Margin="6,2">
             <ItemsControl.ItemTemplate>
-                <DataTemplate DataType="viewModel:BlankSizesViewModel">
-                    <view:BlankSizesView />
+                <DataTemplate DataType="viewModel:SheetSizesViewModel">
+                    <view:SheetSizesView />
                 </DataTemplate>
             </ItemsControl.ItemTemplate>
         </ItemsControl>

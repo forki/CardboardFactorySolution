@@ -1,7 +1,7 @@
 ﻿using System.Collections.ObjectModel;
-using CardboardFactory.Core;
 using CardboardFactory.ProductPriceCalculation.Model;
 using CardboardFactory.WpfCore;
+using Domain.Product;
 
 namespace CardboardFactory.ProductPriceCalculation.ViewModel {
     public class CalculationResultsViewModel : ViewModelBase {
@@ -13,19 +13,19 @@ namespace CardboardFactory.ProductPriceCalculation.ViewModel {
 
         public override string DisplayName => null;
 
-        public ObservableCollection<BlankSizesViewModel> BlanksSizes {
+        public ObservableCollection<SheetSizesViewModel> SteetSizes {
             get {
-                if (Result != null && vBlanksSizes == null) {
-                    vBlanksSizes = new ObservableCollection<BlankSizesViewModel>();
-                    foreach (BlankSizes blankSizes in Result.BlanksSizes) {
-                        vBlanksSizes.Add(new BlankSizesViewModel(blankSizes));
+                if (Result != null && vSteetSizes == null) {
+                    vSteetSizes = new ObservableCollection<SheetSizesViewModel>();
+                    foreach (Product.SheetSizes sheetSizes in Result.SheetsSizes) {
+                        vSteetSizes.Add(new SheetSizesViewModel(sheetSizes));
                     }
-                    return vBlanksSizes;
+                    return vSteetSizes;
                 }
-                return vBlanksSizes;
+                return vSteetSizes;
             }
         }
-        private ObservableCollection<BlankSizesViewModel> vBlanksSizes;
+        private ObservableCollection<SheetSizesViewModel> vSteetSizes;
 
         public double? ProductArea => Result?.ProductArea;
 

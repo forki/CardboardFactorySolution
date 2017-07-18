@@ -65,12 +65,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ProductPriceCalculationMainViewModel.cs" />
-    <Compile Include="ViewModel\BlankSizesViewModel.cs" />
+    <Compile Include="ViewModel\SheetSizesViewModel.cs" />
     <Compile Include="ViewModel\CalculationResultsViewModel.cs" />
     <Compile Include="ViewModel\OrderParameterViewModel.cs" />
     <Compile Include="ViewModel\ProductParameterViewModel.cs" />
-    <Compile Include="View\BlankSizesView.xaml.cs">
-      <DependentUpon>BlankSizesView.xaml</DependentUpon>
+    <Compile Include="View\SheetSizesView.xaml.cs">
+      <DependentUpon>SheetSizesView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\CalculationResultsView.xaml.cs">
       <DependentUpon>CalculationResultsView.xaml</DependentUpon>
@@ -97,7 +97,7 @@
       <DependentUpon>ProductPriceCalculationMain.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="View\BlankSizesView.xaml">
+    <Page Include="View\SheetSizesView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -148,6 +148,10 @@
     <ProjectReference Include="..\Domain.Core\Domain.Core.fsproj">
       <Project>{7F06259E-CC1C-4BC4-8BB9-B9B504B5DF83}</Project>
       <Name>Domain.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Domain.Product\Domain.Product.fsproj">
+      <Project>{746B5753-D2AE-4169-9B5D-F64D5A5B286C}</Project>
+      <Name>Domain.Product</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

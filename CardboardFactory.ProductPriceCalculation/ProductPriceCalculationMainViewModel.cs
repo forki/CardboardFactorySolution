@@ -3,33 +3,36 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.IO;
+using System.Linq;
 using System.Windows.Input;
-using CardboardFactory.Core.Product;
 using CardboardFactory.DataAccess.Product;
 using CardboardFactory.ProductPriceCalculation.Model;
 using CardboardFactory.ProductPriceCalculation.ViewModel;
 using CardboardFactory.WpfCore;
+using Domain.Product;
 using Microsoft.Win32;
 
 namespace CardboardFactory.ProductPriceCalculation {
     public class ProductPriceCalculationMainViewModel : WorkspaceViewModel, IDataErrorInfo {
         private readonly ProductTypesRepository _repository;
 
-        private ProductType _productType;
         private readonly OrderParameter _orderParameter;
+        private Product.ProductType _productType;
         private ProductCalculationResult _calculationResult;
 
         public ProductPriceCalculationMainViewModel(ProductTypesRepository repository) : this(repository, null, new OrderParameter(), new ProductCalculationResult()) { }
 
         public ProductPriceCalculationMainViewModel(
             ProductTypesRepository repository,
-            ProductType productType,
+            Product.ProductType productType,
             OrderParameter orderParameter,
             ProductCalculationResult calculationResult) {
             _repository = repository;
             _productType = productType;
             _orderParameter = orderParameter;
             _calculationResult = calculationResult;
+
+            ProductType = ProductTypeOptions.First();
         }
 
         public override string DisplayName => "Расчёт стоимости изделия";
@@ -52,7 +55,7 @@ namespace CardboardFactory.ProductPriceCalculation {
             get {
                 if (_productType != null && vProductParameters == null) {
                     vProductParameters = new ObservableCollection<ProductParameterViewModel>();
-                    foreach (KeyValuePair<string, ProductParameter> keyValuePair in _productType.Parameters) {
+                    foreach (KeyValuePair<string, Product.ProductParameter> keyValuePair in _productType.Parameters) {
                         vProductParameters.Add(new ProductParameterViewModel(keyValuePair.Value));
                     }
                 }
@@ -90,9 +93,16 @@ namespace CardboardFactory.ProductPriceCalculation {
         private RelayCommand vSaveCalculatedProductCommand;
 
         private void SetNewProductType() {
-            ProductType newProductType = _repository.GetProductType(ProductType);
+            Product.ProductType newProductType = _repository.GetProductType(ProductType);
             if (_productType != null) {
-                newProductType.SetParametersFromOther(_productType);
+                Dictionary<string, Product.ProductParameter> existingParameters = ProductParameters
+                    .Select(model => model.GetDomainType())
+                    .ToDictionary(parameter => parameter.Name, parameter => parameter);
+
+                Dictionary<string, Product.ProductParameter> newParameters = newProductType.Parameters
+                    .ToDictionary(pair => pair.Key, pair => existingParameters.ContainsKey(pair.Key) ? existingParameters[pair.Key] : pair.Value);
+
+                newProductType = Product.SetParametersFromOtherParameters(newProductType, newParameters);
             }
             _productType = newProductType;
             vProductParameters = null;
@@ -100,7 +110,10 @@ namespace CardboardFactory.ProductPriceCalculation {
         }
 
         private void CalculateProductExecuteHandler(object o1) {
-            var calculator = new ProductPriceCalculator(_productType, _orderParameter);
+            Product.ProductType newProductType = Product.SetParametersFromOtherParameters(
+                _productType,
+                ProductParameters.Select(model => model.GetDomainType()).ToDictionary(parameter => parameter.Name, parameter => parameter));
+            var calculator = new ProductPriceCalculator(newProductType, _orderParameter);
             _calculationResult = calculator.Calculate();
             vCalculationResult = null;
             OnPropertyChanged(nameof(CalculationResult));
@@ -137,6 +150,9 @@ namespace CardboardFactory.ProductPriceCalculation {
         string IDataErrorInfo.Error {
             get {
                 string error = (OrderParameter as IDataErrorInfo)?.Error;
+                if (ProductParameters == null || ProductParameters.Count == 0) {
+                    error = "Должен присутствовать хотя бы один параметр";
+                }
                 if (error == null && ProductParameters != null) {
                     foreach (ProductParameterViewModel parameterViewModel in ProductParameters) {
                         error = ((IDataErrorInfo)parameterViewModel).Error;
@@ -150,6 +166,9 @@ namespace CardboardFactory.ProductPriceCalculation {
         string IDataErrorInfo.this[string propertyName] {
             get {
                 string error = (OrderParameter as IDataErrorInfo)?[propertyName];
+                if (ProductParameters == null || ProductParameters.Count == 0) {
+                    error = "Должен присутствовать хотя бы один параметр";
+                }
                 if (error == null && ProductParameters != null) {
                     foreach (ProductParameterViewModel parameterViewModel in ProductParameters) {
                         error = ((IDataErrorInfo)parameterViewModel)[propertyName];

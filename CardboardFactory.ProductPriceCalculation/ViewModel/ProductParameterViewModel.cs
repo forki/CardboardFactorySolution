@@ -1,18 +1,16 @@
 ﻿using System.ComponentModel;
-using CardboardFactory.Core.Product;
 using CardboardFactory.Core.Tools;
 using CardboardFactory.WpfCore;
+using Domain.Product;
 
 namespace CardboardFactory.ProductPriceCalculation.ViewModel {
     public class ProductParameterViewModel : ViewModelBase, IDataErrorInfo {
-        private readonly ProductParameter Parameter;
-
-        public ProductParameterViewModel(ProductParameter parameter) {
-            Parameter = parameter;
-            Initialize(Parameter);
+        public ProductParameterViewModel(Product.ProductParameter parameter) {
+            DisplayName = parameter.Name;
+            Value = parameter.Value * 1000;
         }
 
-        public override string DisplayName => Parameter.Name;
+        public override string DisplayName { get; }
 
         public double? Value {
             get => vValue;
@@ -20,12 +18,13 @@ namespace CardboardFactory.ProductPriceCalculation.ViewModel {
                 if (MathUtilities.AreEquals(vValue, value)) { return; }
                 vValue = value;
                 OnPropertyChanged(nameof(Value));
-                if (vValue.HasValue) {
-                    Parameter.Value = vValue.Value / 1000.0;
-                }
             }
         }
         private double? vValue;
+
+        public Product.ProductParameter GetDomainType() {
+            return new Product.ProductParameter(DisplayName, Value / 1000.0);
+        }
 
         string IDataErrorInfo.Error => ValidateValue();
 
@@ -44,10 +43,6 @@ namespace CardboardFactory.ProductPriceCalculation.ViewModel {
             if (Value == null) { return $"{DisplayName} должна быть числом"; }
             if (Value < 0) { return $"{DisplayName} должна быть больше 0"; }
             return null;
-        }
-
-        private void Initialize(ProductParameter parameter) {
-            Value = parameter.Value * 1000;
         }
     }
 }
