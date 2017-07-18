@@ -16,15 +16,12 @@ module Calculation =
     type ProductTypeExpressionHasErrorException (msg:string) = 
         inherit Exception(msg)
 
-    type ProductTypeBadArgumentException (msg:string) = 
-        inherit Exception(msg)
-
     let private parametersToExpressionParameters (parameters:Dictionary<string, Product.ProductParameter>) = 
         parameters
         |> Seq.map (fun pair -> pair.Key, pair.Value.Value :> obj)
         |> dict
 
-    let private createAndEvaluateExpresion (formula:string, parameters:Dictionary<string, Product.ProductParameter>) =
+    let private createAndEvaluateExpresion (parameters:Dictionary<string, Product.ProductParameter>) (formula:string) =
         let expression = new Expression(formula)
         expression.Parameters <- new Dictionary<string, obj>(parametersToExpressionParameters parameters)
         if expression.HasErrors()
@@ -32,23 +29,24 @@ module Calculation =
         let result = expression.Evaluate()
         unbox<double>(result)
     
-    let private calculateSheetLength (product:Product.ProductType, subProduct:Product.SubProduct, corrugationType:CorrugationTypes.Enum) = 
+    let private findFormula (corrugationType:CorrugationTypes.Enum) (formulas:Dictionary<CorrugationTypes.Enum, Product.LengthFormula>)  =
         let formula = 
-            subProduct.LengthOneFormulas
+            formulas
             |> Seq.tryFind (fun (pair) -> pair.Key.HasFlag(corrugationType))
             |> Option.map (fun (pair) -> pair.Value.FormulaText)
         match formula with
-        | Some text -> createAndEvaluateExpresion(text, product.Parameters)
+        | Some formula -> formula
         | None -> raise (ProductTypeNoFormulaException(sprintf "No formula found for %A" corrugationType))
 
+    let private calculateSheetLength (product:Product.ProductType, subProduct:Product.SubProduct, corrugationType:CorrugationTypes.Enum) = 
+        subProduct.LengthOneFormulas
+        |> findFormula corrugationType
+        |> createAndEvaluateExpresion product.Parameters
+
     let private calculateSheetWidth (product:Product.ProductType, subProduct:Product.SubProduct, corrugationType:CorrugationTypes.Enum) = 
-        let formula = 
-            subProduct.LengthTwoFormulas
-            |> Seq.tryFind (fun (pair) -> pair.Key.HasFlag(corrugationType))
-            |> Option.map (fun (pair) -> pair.Value.FormulaText)
-        match formula with
-        | Some text -> createAndEvaluateExpresion(text, product.Parameters)
-        | None -> raise (ProductTypeNoFormulaException(sprintf "No formula found for %A" corrugationType))
+        subProduct.LengthTwoFormulas
+        |> findFormula corrugationType
+        |> createAndEvaluateExpresion product.Parameters
 
     [<CompiledName("CalculateSheetSizes")>] 
     let calculateSheetSizes(corrugationType:CorrugationTypes.Enum, product:Product.ProductType) =
