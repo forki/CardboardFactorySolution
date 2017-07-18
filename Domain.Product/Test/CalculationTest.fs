@@ -1,5 +1,6 @@
 ﻿namespace Domain.Product.Test
 
+[<System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage>]
 module ProductTypeTest =
     open Domain.Product
     open Domain.Core.Cardboard
