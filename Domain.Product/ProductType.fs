@@ -24,7 +24,7 @@
      type ProductType = {
          Name : string
          Parameters : Dictionary<string, ProductParameter>
-         SubProducts : List<SubProduct>
+         SubProducts : SubProduct list
          StampKnivesLengthFormula : string
      }
  
