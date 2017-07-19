@@ -14,7 +14,7 @@
         </Grid.ColumnDefinitions>
         <Label Grid.Column="0" Margin="6,2"  Content="{Binding DisplayName, Mode=OneTime}"/>
         <TextBox Grid.Column="1" Margin="6,2"  Width="100" VerticalContentAlignment="Center" TextAlignment="Center" FontSize="16" 
-                 Text="{Binding Value, StringFormat='{}{#.##}', ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
+                 Text="{Binding Value, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
         <Label Grid.Column="2" Content="мм" FontSize="16" Width="47"/>
     </Grid>
 </UserControl>
