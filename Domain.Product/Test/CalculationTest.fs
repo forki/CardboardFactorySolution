@@ -54,14 +54,14 @@ module ProductTypeTest =
         
         let product = { defaultProductType with Name = "Короб 0200"; Parameters = parameters; SubProducts = [sub] }
 
-        Assert.That(Calculation.calculateSheetSizes(CorrugationTypes.Enum.C, product).[0].LengthOne, Is.EqualTo(1.258))
-        Assert.That(Calculation.calculateSheetSizes(CorrugationTypes.Enum.C, product).[0].LengthTwo, Is.EqualTo(0.356))
+        Assert.That((Calculation.calculateSheetSizes CorrugationTypes.Enum.C product).[0].LengthOne, Is.EqualTo(1.258))
+        Assert.That((Calculation.calculateSheetSizes CorrugationTypes.Enum.C product).[0].LengthTwo, Is.EqualTo(0.356))
 
-        Assert.That(Calculation.calculateSheetSizes(CorrugationTypes.Enum.EAndC, product).[0].LengthOne, Is.EqualTo(1.258))
-        Assert.That(Calculation.calculateSheetSizes(CorrugationTypes.Enum.EAndC, product).[0].LengthTwo, Is.EqualTo(0.356))
+        Assert.That((Calculation.calculateSheetSizes CorrugationTypes.Enum.EAndC product).[0].LengthOne, Is.EqualTo(1.258))
+        Assert.That((Calculation.calculateSheetSizes CorrugationTypes.Enum.EAndC product).[0].LengthTwo, Is.EqualTo(0.356))
 
-        Assert.That(Calculation.calculateSheetSizes(CorrugationTypes.Enum.E, product).[0].LengthOne, Is.EqualTo(1.238))
-        Assert.That(Calculation.calculateSheetSizes(CorrugationTypes.Enum.E, product).[0].LengthTwo, Is.EqualTo(0.352))
+        Assert.That((Calculation.calculateSheetSizes CorrugationTypes.Enum.E product).[0].LengthOne, Is.EqualTo(1.238))
+        Assert.That((Calculation.calculateSheetSizes CorrugationTypes.Enum.E product).[0].LengthTwo, Is.EqualTo(0.352))
 
     [<Test>]
     [<TestCase(CorrugationTypes.Enum.C)>]
@@ -86,7 +86,7 @@ module ProductTypeTest =
         product.Parameters.[widthName] <- { product.Parameters.[lengthName] with Value = Nullable<double>(240.0)}
         Assert.AreEqual(240.0, product.Parameters.[widthName].Value)
 
-        let sheetSizes = Calculation.calculateSheetSizes(enum, product)
+        let sheetSizes = Calculation.calculateSheetSizes enum product
         Assert.AreEqual(1, sheetSizes.Length)
         Assert.AreEqual(240.0, sheetSizes.[0].LengthOne)
         Assert.AreEqual(410.0, sheetSizes.[0].LengthTwo)
@@ -104,7 +104,7 @@ module ProductTypeTest =
         let product = { defaultProductType with Name = "Test"; SubProducts = list }
 
         Assert.Throws<ArgumentException>
-            (fun () -> Calculation.calculateSheetSizes(CorrugationTypes.Enum.C, product) |> ignore)
+            (fun () -> Calculation.calculateSheetSizes CorrugationTypes.Enum.C product |> ignore)
             |> ignore
 
     [<Test>]
@@ -114,7 +114,7 @@ module ProductTypeTest =
         let list = [sub]
         let product = { defaultProductType with Name = "Test"; SubProducts = list }
         Assert.Throws<Calculation.ProductTypeNoFormulaException>
-            (fun () -> Calculation.calculateSheetSizes(CorrugationTypes.Enum.C, product) |> ignore)
+            (fun () -> Calculation.calculateSheetSizes CorrugationTypes.Enum.C product |> ignore)
             |> ignore
 
     [<Test>]
@@ -127,7 +127,7 @@ module ProductTypeTest =
         let list = [sub]
         let product = { defaultProductType with Name = "Test"; SubProducts = list }
         Assert.Throws<Calculation.ProductTypeNoFormulaException>
-            (fun () -> Calculation.calculateSheetSizes(CorrugationTypes.Enum.C, product) |> ignore)
+            (fun () -> Calculation.calculateSheetSizes CorrugationTypes.Enum.C product |> ignore)
             |> ignore
     
     [<Test>]
@@ -140,7 +140,7 @@ module ProductTypeTest =
         let list = [sub]
         let product = { defaultProductType with Name = "Test"; SubProducts = list }
         Assert.Throws<Calculation.ProductTypeExpressionHasErrorException>
-            (fun () -> Calculation.calculateSheetSizes(CorrugationTypes.Enum.C, product) |> ignore)
+            (fun () -> Calculation.calculateSheetSizes CorrugationTypes.Enum.C product |> ignore)
             |> ignore
 
     [<Test>]
@@ -163,7 +163,7 @@ module ProductTypeTest =
         product.Parameters.[lengthName] <- { product.Parameters.[lengthName] with Value = Nullable<double>(length)}
         product.Parameters.[widthName] <- { product.Parameters.[lengthName] with Value = Nullable<double>(width)}
 
-        let sheetSizes = Calculation.calculateSheetSizes(enum, product)
+        let sheetSizes = Calculation.calculateSheetSizes enum product
         Assert.AreEqual(1, sheetSizes.Length)
         Assert.AreEqual(result1, sheetSizes.[0].LengthOne);
         Assert.AreEqual(result2, sheetSizes.[0].LengthTwo);
