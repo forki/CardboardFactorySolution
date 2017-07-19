@@ -10,6 +10,7 @@ using CardboardFactory.ProductPriceCalculation.Model;
 using CardboardFactory.ProductPriceCalculation.ViewModel;
 using CardboardFactory.WpfCore;
 using Domain.Product;
+using Microsoft.FSharp.Collections;
 using Microsoft.Win32;
 
 namespace CardboardFactory.ProductPriceCalculation {
@@ -99,8 +100,10 @@ namespace CardboardFactory.ProductPriceCalculation {
                     .Select(model => model.GetDomainType())
                     .ToDictionary(parameter => parameter.Name, parameter => parameter);
 
-                Dictionary<string, Product.ProductParameter> newParameters = newProductType.Parameters
-                    .ToDictionary(pair => pair.Key, pair => existingParameters.ContainsKey(pair.Key) ? existingParameters[pair.Key] : pair.Value);
+                var newParameters = new FSharpMap<string, Product.ProductParameter>(newProductType.Parameters
+                    .Select(pair => new Tuple<string, Product.ProductParameter>(
+                        pair.Key, 
+                        existingParameters.ContainsKey(pair.Key) ? existingParameters[pair.Key] : pair.Value)));
 
                 newProductType = Product.SetParametersFromOtherParameters(newProductType, newParameters);
             }
@@ -112,7 +115,9 @@ namespace CardboardFactory.ProductPriceCalculation {
         private void CalculateProductExecuteHandler(object o1) {
             Product.ProductType newProductType = Product.SetParametersFromOtherParameters(
                 _productType,
-                ProductParameters.Select(model => model.GetDomainType()).ToDictionary(parameter => parameter.Name, parameter => parameter));
+                new FSharpMap<string, Product.ProductParameter>(ProductParameters
+                    .Select(model => model.GetDomainType())
+                    .Select(parameter => new Tuple<string, Product.ProductParameter>(parameter.Name, parameter))));
             var calculator = new ProductPriceCalculator(newProductType, _orderParameter);
             _calculationResult = calculator.Calculate();
             vCalculationResult = null;

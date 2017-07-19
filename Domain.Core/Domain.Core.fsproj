@@ -52,6 +52,7 @@
   <ItemGroup>
     <Compile Include="AssemblyInfo.fs" />
     <EmbeddedResource Include="Domain.Core.resx" />
+    <Compile Include="Core.fs" />
     <Compile Include="Cardboard.fs" />
     <Content Include="packages.config" />
   </ItemGroup>
