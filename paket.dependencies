@@ -1,0 +1,4 @@
+references: strict
+framework: auto-detect
+strategy: min
+source https://www.nuget.org/api/v2
