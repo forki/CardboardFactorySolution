@@ -3,6 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26430.14
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".paket", ".paket", "{EC85CBBD-67F9-4130-A0C4-0F34089F4B09}"
+	ProjectSection(SolutionItems) = preProject
+		paket.dependencies = paket.dependencies
+	EndProjectSection
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CardboardFactory.Management", "CardboardFactory.Management\CardboardFactory.Management.csproj", "{6E06EEB8-4A12-4121-9D0D-D5444D023A7F}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CardboardFactory.Core", "CardboardFactory.Core\CardboardFactory.Core.csproj", "{CE4796E7-06C1-4727-A6D9-0325101554DE}"

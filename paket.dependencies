@@ -2,3 +2,13 @@ references: strict
 framework: auto-detect
 strategy: min
 source https://www.nuget.org/api/v2
+nuget FSharp.Configuration
+nuget FSharp.Core
+nuget Microsoft.Xaml
+nuget ncalc
+nuget Newtonsoft.Json
+nuget NUnit
+nuget NUnit.ConsoleRunner
+nuget NUnit3TestAdapter
+nuget System.ComponentModel
+nuget System.ValueTuple
